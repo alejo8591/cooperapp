@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*
 from google.appengine.ext import ndb
-#from endpoints_proto_datastore.ndb import EndpointsModel
+from endpoints_proto_datastore.ndb import EndpointsModel
 
 """
 
@@ -26,7 +26,7 @@ user.put()
 
 """
 
-class User(ndb.Model):
+class User(EndpointsModel):
 	"""Model for Users"""
 	username = ndb.StringProperty(required=True, verbose_name="Documento de Identidad")
 	email = ndb.StringProperty(verbose_name="Correo Electronico")
@@ -37,7 +37,7 @@ class User(ndb.Model):
 	bankCount = ndb.StringProperty(verbose_name="Número de cuenta")
 	
 
-class Cooperative(ndb.Model):
+class Cooperative(EndpointsModel):
     """Models for Cooperatives."""
     name = ndb.StringProperty(verbose_name="Nombre de la Cooperativa")
     codeConfecoop = ndb.IntegerProperty(required=True, verbose_name="Codigo Confecoop")
@@ -50,7 +50,7 @@ class Cooperative(ndb.Model):
     bankCount = ndb.StringProperty()
 
 
-class Transaction(ndb.Model):
+class Transaction(EndpointsModel):
 	"""Model Transaction between Users and Cooperatives"""
 	user = ndb.StructuredProperty(User)
 	Cooperative = ndb.StructuredProperty(Cooperative)
