@@ -176,4 +176,10 @@ function showPlaces(){
     }
 }
 
-Lungo.Events.init({});
+Lungo.Events.init({
+
+   'tap section#splash article div button#enter': function(){
+    // loginUser();
+    getLocation();
+  },
+});
