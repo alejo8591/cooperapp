@@ -29,14 +29,14 @@ from endpoints_proto_datastore.ndb import EndpointsModel
 
 class User(EndpointsModel):
 	"""Model for Users"""
-	username = ndb.StringProperty(verbose_name="Documento de Identidad")
+	username = ndb.StringProperty(verbose_name="Documento de Identidad", indexed=True)
 	email = ndb.StringProperty(verbose_name="Correo Electronico")
 	name = ndb.StringProperty(verbose_name="Nombre del Usuario")
 	phone = ndb.StringProperty(verbose_name="Telefono Móvil")
 	address = ndb.StringProperty(verbose_name="Dirección del Usuario")
 	bank = ndb.StringProperty(verbose_name="Nombre del Banco donde tiene la cuenta")
 	bankCount = ndb.StringProperty(verbose_name="Número de cuenta")
-	
+
 
 class Cooperative(EndpointsModel):
     """Models for Cooperatives."""
