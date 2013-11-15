@@ -28,6 +28,7 @@ var cityReport = "";
 var countryReport = ""; 
 // var fullDateTime = "20130822_040115";
 
+
 function getLocation() {
   // clearData();
   var decode = decodeURIComponent(document.location.search);
@@ -81,82 +82,78 @@ function initialize(latitude, longitude) {
   //directionsDisplay.setMap(map);
 
   //Create markup into the actual position
-
-  
   var map = new google.maps.Map(document.getElementById("map"), properties);
 
-  var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
+  showPoints(map);
 
-  var point1 = new google.maps.Marker({
-    position: lat1,
-    map:map,
-    title: "Hola mundo"
+  marker = new google.maps.Marker({
+  position:latlng,
+  animation:google.maps.Animation.BOUNCE
   });
 
-  directionsDisplay.setMap(map);
-           point1.setMap(map);
-           point1.setPosition(lat1);
+  //Geocoder inverse lets get address with latitude and longitute coords
+  geocoder = new google.maps.Geocoder();
+  infoWindow = new google.maps.InfoWindow();
 
-  google.maps.event.addListener(point1, 'click', function(){
-            infoWindow.setContent("ssssss");
-            infoWindow.open(map, point1);
-        });
+  geocoder.geocode({'latLng': latlng}, function(results, status){
+  if(status == google.maps.GeocoderStatus.OK){
+    if(results[0])
+      {
+        // map = new google.maps.Map(document.getElementById("map"), properties);
+        //map.fitBounds(results[0].geometry.viewport);
+        directionsDisplay.setMap(map);
+          marker.setMap(map);
+          marker.setPosition(latlng);
 
-
-  // marker = new google.maps.Marker({
-  // position:latlng,
-  // animation:google.maps.Animation.BOUNCE
-  // });
-
-  // //Geocoder inverse lets get address with latitude and longitute coords
-  // geocoder = new google.maps.Geocoder();
-  // infoWindow = new google.maps.InfoWindow();
-
-  // geocoder.geocode({'latLng': latlng}, function(results, status){
-  // if(status == google.maps.GeocoderStatus.OK){
-  //   if(results[0])
-  //     {
-  //       map = new google.maps.Map(document.getElementById("map"), properties);
-  //       //map.fitBounds(results[0].geometry.viewport);
-  //       directionsDisplay.setMap(map);
-  //         marker.setMap(map);
-  //         marker.setPosition(latlng);
-
-  //       //First split for descart Country,city
-  //       var splitAddress = (results[0].formatted_address).split(',',2);
-  //       //Second split for discard number '-' 
-  //       var addressShort = splitAddress[0].split('-',2);
-  //       var splitCity = (results[3].formatted_address).split(',',2);
+        //First split for descart Country,city
+        var splitAddress = (results[0].formatted_address).split(',',2);
+        //Second split for discard number '-' 
+        var addressShort = splitAddress[0].split('-',2);
+        var splitCity = (results[3].formatted_address).split(',',2);
                   
-  //       document.getElementById("IAddress").value = addressShort[0];
-  //       // document.getElementById("ICity").value = splitCity[0];
-  //       cityReport = splitCity[0];
-  //       // document.getElementById("ICountry").value = results[5].formatted_address;
-  //       countryReport = results[5].formatted_address;
+        document.getElementById("IAddress").value = addressShort[0];
+        // document.getElementById("ICity").value = splitCity[0];
+        cityReport = splitCity[0];
+        // document.getElementById("ICountry").value = results[5].formatted_address;
+        countryReport = results[5].formatted_address;
 
-  //       //$('#address').text(results[0].formatted_address);
-  //       //Is showed a dialog with the address in the map
-  //       infoWindow.setContent(document.getElementById("IAddress").value);
-  //       infoWindow.open(map, marker);
+        //$('#address').text(results[0].formatted_address);
+        //Is showed a dialog with the address in the map
+        infoWindow.setContent(document.getElementById("IAddress").value);
+        infoWindow.open(map, marker);
         
-  //       google.maps.event.addListener(marker, 'click', function(){
-  //           infoWindow.setContent(document.getElementById("IAddress").value);
-  //           infoWindow.open(map, marker);
-  //       });
-  //     }
-  //     else {
-  //       alert('No results found');
-  //     }
-  //   }
-  //   else
-  //   {
-  //     alert("Error");
-  //   }
-  // });
+        google.maps.event.addListener(marker, 'click', function(){
+            infoWindow.setContent(document.getElementById("IAddress").value);
+            infoWindow.open(map, marker);
+        });
+      }
+      else {
+        alert('No results found');
+      }
+    }
+    else
+    {
+      alert("Error");
+    }
+  });
 }
 
-function showPlaces(){
+function showPoints(map){
+    var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
+    var point1 = new google.maps.Marker({
+      position: lat1,
+      map:map,
+      title: "Hola mundo"
+    });
 
+    directionsDisplay.setMap(map);
+             point1.setMap(map);
+             point1.setPosition(lat1);
+
+    google.maps.event.addListener(point1, 'click', function(){
+              infoWindow.setContent("ssssss");
+              infoWindow.open(map, point1);
+    });
 }
 
 
