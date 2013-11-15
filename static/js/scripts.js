@@ -100,7 +100,7 @@ function initialize(latitude, longitude) {
   if(status == google.maps.GeocoderStatus.OK){
     if(results[0])
       {
-        map = new google.maps.Map(document.getElementById("map"), properties);
+        // map = new google.maps.Map(document.getElementById("map"), properties);
         //map.fitBounds(results[0].geometry.viewport);
         directionsDisplay.setMap(map);
           marker.setMap(map);
