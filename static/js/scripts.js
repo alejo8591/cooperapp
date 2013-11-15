@@ -89,7 +89,6 @@ function initialize(latitude, longitude) {
   geocoder = new google.maps.Geocoder();
   infoWindow = new google.maps.InfoWindow();
 
-
   geocoder.geocode({'latLng': latlng}, function(results, status){
   if(status == google.maps.GeocoderStatus.OK){
     if(results[0])
@@ -130,5 +129,13 @@ function initialize(latitude, longitude) {
     {
       alert("Error");
     }
+  });
+
+  var myLatlng2 = new google.maps.LatLng(4.5980556,-74.0758333);
+
+  var marker2 = new google.maps.Marker({
+      position: myLatlng2,
+      map: map,
+      title: 'Hello World!'
   });
 }
