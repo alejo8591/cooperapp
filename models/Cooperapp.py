@@ -1,5 +1,30 @@
 # -*- coding: utf-8 -*
 from google.appengine.ext import ndb
+#from endpoints_proto_datastore.ndb import EndpointsModel
+
+"""
+
+Create data test
+
+import os
+import pprint
+
+from google.appengine.api import memcache
+from google.appengine.api import mail
+from google.appengine.api import urlfetch
+from google.appengine.ext import db
+
+from models.Cooperapp import User
+
+pprint.pprint(os.environ.copy())
+
+user = User(username = "80912070",
+	email = "alejo8591@gmail.com",
+	name = "Alejandro Romero")
+
+user.put()
+
+"""
 
 class User(ndb.Model):
 	"""Model for Users"""
@@ -20,7 +45,7 @@ class Cooperative(ndb.Model):
     acronym = ndb.StringProperty(verbose_name="Siglas de la Cooperativa")
     phone = ndb.StringProperty(verbose_name="Teléfono de la Cooperativa")
     address = ndb.StringProperty(verbose_name="Direccion Principal de la conpañia")
-    ubication = ndb.GeoProperty()
+    ubication = ndb.GeoPtProperty()
     bank = ndb.StringProperty()
     bankCount = ndb.StringProperty()
 

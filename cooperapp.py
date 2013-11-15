@@ -6,7 +6,7 @@ import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
-from models import Cooperapp
+from models.Cooperapp import User
 
 
 import webapp2
