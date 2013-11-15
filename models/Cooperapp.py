@@ -29,7 +29,7 @@ from endpoints_proto_datastore.ndb import EndpointsModel
 
 class User(EndpointsModel):
 	"""Model for Users"""
-	username = ndb.StringProperty(required=True, verbose_name="Documento de Identidad")
+	username = ndb.StringProperty(verbose_name="Documento de Identidad")
 	email = ndb.StringProperty(verbose_name="Correo Electronico")
 	name = ndb.StringProperty(verbose_name="Nombre del Usuario")
 	phone = ndb.StringProperty(verbose_name="Telefono Móvil")
@@ -41,8 +41,8 @@ class User(EndpointsModel):
 class Cooperative(EndpointsModel):
     """Models for Cooperatives."""
     name = ndb.StringProperty(verbose_name="Nombre de la Cooperativa")
-    codeConfecoop = ndb.IntegerProperty(required=True, verbose_name="Codigo Confecoop")
-    nit = ndb.StringProperty(required=True, verbose_name="Nit de la Cooperativa")
+    codeConfecoop = ndb.IntegerProperty(verbose_name="Codigo Confecoop")
+    nit = ndb.StringProperty(verbose_name="Nit de la Cooperativa")
     acronym = ndb.StringProperty(verbose_name="Siglas de la Cooperativa")
     phone = ndb.StringProperty(verbose_name="Teléfono de la Cooperativa")
     address = ndb.StringProperty(verbose_name="Direccion Principal de la conpañia")

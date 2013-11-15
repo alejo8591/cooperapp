@@ -8,7 +8,7 @@ from models.Cooperapp import User
 
 @endpoints.api(name='cooperappuser', version='v1', description='API for Users Model')
 class CooperappUser(remote.Service):
-    @User.method(request_fields=("username",), path='user/{username}', http_method="GET", name='user.get')
+    @User.method(path='user/{username}', http_method="GET", name='user.get')
     def UserGet(self, user):
     	if not user.from_datastore:
     		raise endpoints.NotFoundException('Usuario no existe.')
