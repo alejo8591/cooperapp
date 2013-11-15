@@ -28,3 +28,7 @@ class CooperApi(remote.Service):
 	@Cooperative.query_method(query_fields=('name',), path='cooperative', name='cooperative.list')
 	def CooperativeList(self, query):
 		return query
+
+	@Cooperative.query_method(query_fields=('name',), path='cooperative/{name}', http_method='GET', name='cooperative.get')
+	def CooperativeGet(self, query):
+		return query
