@@ -85,61 +85,6 @@ function initialize(latitude, longitude) {
   
   var map = new google.maps.Map(document.getElementById("map"), properties);
 
-  showPoints(map);
-
-  marker = new google.maps.Marker({
-  position:latlng,
-  animation:google.maps.Animation.BOUNCE
-  });
-
-  //Geocoder inverse lets get address with latitude and longitute coords
-  geocoder = new google.maps.Geocoder();
-  infoWindow = new google.maps.InfoWindow();
-
-  geocoder.geocode({'latLng': latlng}, function(results, status){
-  if(status == google.maps.GeocoderStatus.OK){
-    if(results[0])
-      {
-        // map = new google.maps.Map(document.getElementById("map"), properties);
-        //map.fitBounds(results[0].geometry.viewport);
-        directionsDisplay.setMap(map);
-          marker.setMap(map);
-          marker.setPosition(latlng);
-
-        //First split for descart Country,city
-        var splitAddress = (results[0].formatted_address).split(',',2);
-        //Second split for discard number '-' 
-        var addressShort = splitAddress[0].split('-',2);
-        var splitCity = (results[3].formatted_address).split(',',2);
-                  
-        document.getElementById("IAddress").value = addressShort[0];
-        // document.getElementById("ICity").value = splitCity[0];
-        cityReport = splitCity[0];
-        // document.getElementById("ICountry").value = results[5].formatted_address;
-        countryReport = results[5].formatted_address;
-
-        //$('#address').text(results[0].formatted_address);
-        //Is showed a dialog with the address in the map
-        infoWindow.setContent(document.getElementById("IAddress").value);
-        infoWindow.open(map, marker);
-        
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent(document.getElementById("IAddress").value);
-            infoWindow.open(map, marker);
-        });
-      }
-      else {
-        alert('No results found');
-      }
-    }
-    else
-    {
-      alert("Error");
-    }
-  });
-}
-
-function showPoints(map){
   var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
 
   var point1 = new google.maps.Marker({
@@ -156,7 +101,63 @@ function showPoints(map){
             infoWindow.setContent("ssssss");
             infoWindow.open(map, point1);
         });
-  }
+
+
+  // marker = new google.maps.Marker({
+  // position:latlng,
+  // animation:google.maps.Animation.BOUNCE
+  // });
+
+  // //Geocoder inverse lets get address with latitude and longitute coords
+  // geocoder = new google.maps.Geocoder();
+  // infoWindow = new google.maps.InfoWindow();
+
+  // geocoder.geocode({'latLng': latlng}, function(results, status){
+  // if(status == google.maps.GeocoderStatus.OK){
+  //   if(results[0])
+  //     {
+  //       map = new google.maps.Map(document.getElementById("map"), properties);
+  //       //map.fitBounds(results[0].geometry.viewport);
+  //       directionsDisplay.setMap(map);
+  //         marker.setMap(map);
+  //         marker.setPosition(latlng);
+
+  //       //First split for descart Country,city
+  //       var splitAddress = (results[0].formatted_address).split(',',2);
+  //       //Second split for discard number '-' 
+  //       var addressShort = splitAddress[0].split('-',2);
+  //       var splitCity = (results[3].formatted_address).split(',',2);
+                  
+  //       document.getElementById("IAddress").value = addressShort[0];
+  //       // document.getElementById("ICity").value = splitCity[0];
+  //       cityReport = splitCity[0];
+  //       // document.getElementById("ICountry").value = results[5].formatted_address;
+  //       countryReport = results[5].formatted_address;
+
+  //       //$('#address').text(results[0].formatted_address);
+  //       //Is showed a dialog with the address in the map
+  //       infoWindow.setContent(document.getElementById("IAddress").value);
+  //       infoWindow.open(map, marker);
+        
+  //       google.maps.event.addListener(marker, 'click', function(){
+  //           infoWindow.setContent(document.getElementById("IAddress").value);
+  //           infoWindow.open(map, marker);
+  //       });
+  //     }
+  //     else {
+  //       alert('No results found');
+  //     }
+  //   }
+  //   else
+  //   {
+  //     alert("Error");
+  //   }
+  // });
+}
+
+function showPlaces(){
+
+}
 
 
 Lungo.Events.init({
