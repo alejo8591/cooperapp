@@ -6,10 +6,16 @@ import urllib
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
-from models.Cooperapp import User
+import endpoints_proto_datastore
 
+import endpoints
 
 import webapp2
+
+from models.Cooperapp import User
+
+from api.api import CooperappUser
+
 
 
 class MainPage(webapp2.RequestHandler):
@@ -19,3 +25,5 @@ class MainPage(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
     ('/', MainPage),
 ], debug=True)
+
+endpointsapp = endpoints.api_server([CooperappUser], restricted=False)

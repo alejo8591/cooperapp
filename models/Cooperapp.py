@@ -1,28 +1,29 @@
 # -*- coding: utf-8 -*
 from google.appengine.ext import ndb
+
 from endpoints_proto_datastore.ndb import EndpointsModel
 
 """
 
-Create data test
+	Create data test
 
-import os
-import pprint
+	import os
+	import pprint
 
-from google.appengine.api import memcache
-from google.appengine.api import mail
-from google.appengine.api import urlfetch
-from google.appengine.ext import db
+	from google.appengine.api import memcache
+	from google.appengine.api import mail
+	from google.appengine.api import urlfetch
+	from google.appengine.ext import db
 
-from models.Cooperapp import User
+	from models.Cooperapp import User
 
-pprint.pprint(os.environ.copy())
+	pprint.pprint(os.environ.copy())
 
-user = User(username = "80912070",
-	email = "alejo8591@gmail.com",
-	name = "Alejandro Romero")
+	user = User(username = "80912070",
+		email = "alejo8591@gmail.com",
+		name = "Alejandro Romero")
 
-user.put()
+	user.put()
 
 """
 
