@@ -81,6 +81,12 @@ function initialize(latitude, longitude) {
   //directionsDisplay.setMap(map);
 
   //Create markup into the actual position
+
+  
+  var map = new google.maps.Map(document.getElementById("map"), properties);
+
+  showPoints(map);
+
   marker = new google.maps.Marker({
   position:latlng,
   animation:google.maps.Animation.BOUNCE
@@ -131,55 +137,30 @@ function initialize(latitude, longitude) {
       alert("Error");
     }
   });
-
-  // var myLatlng2 = new google.maps.LatLng(4.5980556,-74.0758333);
-
-  // var marker2 = new google.maps.Marker({
-  //     position: myLatlng2,
-  //     map: map,
-  //     title: 'Hello World!'
-  // });
-  showPlaces();
 }
 
-function showPlaces(){
-  var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
+function showPoints(map){
+  var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
 
-    //  var map = new google.maps.Map(document.getElementById('map'), {
-    //   zoom: 10,
-    //   center: new google.maps.LatLng(-33.92, 151.25),
-    //   mapTypeId: google.maps.MapTypeId.ROADMAP
-    // });
+  var point1 = new google.maps.Marker({
+    position: lat1,
+    map:map,
+    title: "Hola mundo"
+  });
 
-    var infowindow = new google.maps.InfoWindow();
+  directionsDisplay.setMap(map);
+           point1.setMap(map);
+           point1.setPosition(lat1);
 
-    var marker, i;
+  google.maps.event.addListener(point1, 'click', function(){
+            infoWindow.setContent("ssssss");
+            infoWindow.open(map, point1);
+        });
+  }
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-}
 
 Lungo.Events.init({
-
    'tap section#splash article div button#enter': function(){
-    // loginUser();
     getLocation();
   },
 });
