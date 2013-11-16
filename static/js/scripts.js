@@ -173,15 +173,36 @@ function calculateCredit(){
   var amount = document.getElementById("txt-amount").value;
   var interestRate = document.getElementById("txt-interestRate").value;
   var feeNumber = document.getElementById("txt-feeNumber").value;
+
+  tmp=Math.pow((1+(interestRate/100)), (-feeNumber));
+  tmpd=1-tmp;
+  tmpn=amount*(interestRate/100);
   
-  var feeToPay = amount*(interestRate/100);
-  var totalPay = feeToPay*feeNumber+parseInt(amount);
-  var totalInterest = amount/totalPay;
-  totalInterest = totalInterest.toFixed(2);
+  var feeToPay = round(tmpn/tmpd);
+  var totalPay = round(feeToPay*feeNumber);
+  var totalInterest = round(totalPay - amount);
 
   document.getElementById("txt-feeToPay").value = feeToPay;
   document.getElementById("txt-totalPay").value = totalPay;
   document.getElementById("txt-totalInterest").value = totalInterest;
+}
+
+function round(val){
+  tmp = Math.round(val*100)/100+'';
+  if(tmp.indexOf('.')==-1)
+    tmp+='.00';
+  else if(tmp.length-tmp.indexOf('.')==2)
+    tmp+='0';
+  return tmp;
+}
+
+function clearData(){
+  document.getElementById("txt-amount").value = "";
+  document.getElementById("txt-interestRate").value = "";
+  document.getElementById("txt-feeNumber").value = "";
+  document.getElementById("txt-feeToPay").value = "";
+  document.getElementById("txt-totalPay").value = "";
+  document.getElementById("txt-totalInterest").value = "";
 }
 
 Lungo.Events.init({
