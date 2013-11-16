@@ -153,7 +153,44 @@
             </div>
             <div id="map" class="form empty" style="width: 80%; height: 80%;"></div>
     	</article>
-    	<article id="accountStatus" class="list scroll">Estado de Cuenta</article>
+    	<article id="accountStatus" class="list scroll">
+    		<div class="form empty">
+	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+	            		Afiliado
+	            	</label>
+	                <input type="text" placeholder="Nombre" id="txt-name" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+	            		Coop.
+	            	</label>
+	                <input type="text" placeholder="Cooperativa" id="txt-cooperative" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+	            		Monto
+	            	</label>
+	                <input type="text" placeholder="Monto a pagar" id="txt-payAmount" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+	            		Saldo
+	            	</label>
+	                <input type="text" placeholder="Saldo" id="txt-payRestant" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+	            		Próx. Pago
+	            	</label>
+	                <input type="text" placeholder="Próximo pago" id="txt-nextPayDate" value="">
+	            </fieldset>
+	          <!--   <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
+	                <input type="text" placeholder="Fecha Nacimiento" id="txt-document" value="">
+	            </fieldset> -->
+	            <button data-view-section="createAccount" class="anchor" data-icon="lock" data-label="Pagar"></button>
+	        </div>
+    	</article>
     </section>
 
     <script src="components/quojs/quo.js"></script>
