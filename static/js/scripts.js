@@ -208,7 +208,7 @@ function round(val){
 }
 
 function clearData(){
-  document.getElementById("txt-amount").value = "";
+  document.getElementById("txt-amount").value = " ";
   document.getElementById("txt-interestRate").value = "";
   document.getElementById("txt-feeNumber").value = "";
   document.getElementById("txt-feeToPay").value = "";
