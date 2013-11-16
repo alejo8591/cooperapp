@@ -1,0 +1,19 @@
+application: cooperapp
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /_ah/spi/.*
+  script: cooperapp.endpointsapp
+- url: /.*
+  script: cooperapp.application 
+
+
+libraries:
+- name: webapp2
+  version: latest
+- name: endpoints
+  version: 1.0
+
