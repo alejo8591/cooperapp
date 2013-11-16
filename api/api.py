@@ -1,19 +1,34 @@
 import endpoints
 from google.appengine.ext import ndb
 from protorpc import remote
+from models.Cooperapp import User, Cooperative
 
-#from endpoints_proto_datastore.ndb import EndpointsModel
+@endpoints.api(name='cooperapi', version='v1', description='API for Users Model')
+class CooperApi(remote.Service):	
+	""" Services for User Model """
+	@User.query_method(query_fields=('username',), path='user/{username}', http_method='GET', name='user.get')
+	def UserGet(self, query):
+		return query
 
-from models.Cooperapp import User
+	@User.query_method(query_fields=('username', 'email',), path='username', name='user.list')
+	def UserList(self, query):
+		return query
 
-@endpoints.api(name='cooperappuser', version='v1', description='API for Users Model')
-class CooperappUser(remote.Service):
-    @User.method(path='user/{username}', http_method="GET", name='user.get')
-    def UserGet(self, user):
-    	if not user.from_datastore:
-    		raise endpoints.NotFoundException('Usuario no existe.')
-    	return user
+	@User.method(path='user', http_method='POST', name='user.insert')
+	def UserModelInsert(self, user):
+		user.put()
+		return user
 
-    @User.query_method(path='user', name='user.list')
-    def UserList(self, query):
-    	return query
+	""" Services for Cooperative Model """
+	@Cooperative.method(path='cooperative', http_method='POST', name='cooperative.insert')
+	def CooperativeModelInsert(self, cooperative):
+		cooperative.put()
+		return cooperative
+
+	@Cooperative.query_method(query_fields=('name',), path='cooperative', name='cooperative.list')
+	def CooperativeList(self, query):
+		return query
+
+	@Cooperative.query_method(query_fields=('name',), path='cooperative/{name}', http_method='GET', name='cooperative.get')
+	def CooperativeGet(self, query):
+		return query
