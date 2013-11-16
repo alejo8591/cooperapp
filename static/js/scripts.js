@@ -127,10 +127,10 @@ function initialize(latitude, longitude) {
         infoWindow.setContent(document.getElementById("IAddress").value);
         infoWindow.open(map, marker);
         
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent(document.getElementById("IAddress").value);
-            infoWindow.open(map, marker);
-        });
+        // google.maps.event.addListener(marker, 'click', function(){
+        //     infoWindow.setContent(document.getElementById("IAddress").value);
+        //     infoWindow.open(map, marker);
+        // });
       }
       else {
         alert('No results found');
@@ -145,39 +145,37 @@ function initialize(latitude, longitude) {
 
 function showPoints(map, sites){
 
-    var lat1 = new google.maps.LatLng(sites[0][1], sites[0][2]);
-    var point1 = new google.maps.Marker({
-      position: lat1,
-      map:map,
-      title: "Hola mundo"
-    });
-
-    directionsDisplay.setMap(map);
-             point1.setMap(map);
-             point1.setPosition(lat1);
-
-    google.maps.event.addListener(point1, 'click', function(){
-              infoWindow.setContent("ssssss");
-              infoWindow.open(map, point1);
-    });
-
-    
-
-    // for (var i = 0; i < sites.length; i++) {
-    //     var marker = new google.maps.Marker({
-    //         position: new google.maps.LatLng (sites[i][1], sites[i][2]),
-    //         map: map,
-    //         title: sites[i][0],
-    //     });
-    //     directionsDisplay.setMap(map);
-    //          marker.setMap(map);
-    //          marker.setPosition(marker.position);
-
-    //     google.maps.event.addListener(marker, 'click', function(){
-    //           infoWindow.setContent("ssssss");
-    //           infoWindow.open(map, marker);
+    // var lat1 = new google.maps.LatLng(sites[0][1], sites[0][2]);
+    // var point1 = new google.maps.Marker({
+    //   position: lat1,
+    //   map:map,
+    //   title: "Hola mundo"
     // });
-    // }
+
+    // directionsDisplay.setMap(map);
+    //          point1.setMap(map);
+    //          point1.setPosition(lat1);
+
+    // google.maps.event.addListener(point1, 'click', function(){
+    //           infoWindow.setContent("ssssss");
+    //           infoWindow.open(map, point1);
+    // });
+
+    for (var i = 0; i < sites.length; i++) {
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng (sites[i][1], sites[i][2]),
+            map: map,
+            title: sites[i][0],
+        });
+        directionsDisplay.setMap(map);
+             marker.setMap(map);
+             marker.setPosition(marker.position);
+
+        google.maps.event.addListener(marker, 'click', function(){
+              infoWindow.setContent("abcdefg");
+              infoWindow.open(map, marker);
+    });
+    }
 }
 
 function calculateCredit(){
