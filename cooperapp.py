@@ -19,26 +19,7 @@ import webapp2
 from api.api import CooperApi
 
 class MainPage(webapp2.RequestHandler):
-    """
-        def get(self):
-            greetings_query = Greeting.all().order('-date')
-            greetings = greetings_query.fetch(10)
-
-            if users.get_current_user():
-                url = users.create_logout_url(self.request.uri)
-                url_linktext = 'Logout'
-            else:
-                url = users.create_loginw_url(self.request.uri)
-                url_linktext = 'Login'
-
-            template_values = {
-                'greetings': greetings,
-                'url': url,
-                'url_linktext': url_linktext,
-                }
-        path = os.path.join(os.path.dirname(__file__), 'index.html')
-        self.response.out.write(template.render(path, template_values))
-    """
+    # render index.html
     def get(self):
         template_values = {
             'title' : "CooperApp"
