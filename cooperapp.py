@@ -28,8 +28,20 @@ class MainPage(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'index.html')
         self.response.out.write(template.render(path, template_values))
 
+
+class MobilePage(webapp2.RequestHandler):
+    # render index.html
+    def get(self):
+        template_values = {
+            'title' : "CooperApp"
+        }
+
+        path = os.path.join(os.path.dirname(__file__),'mobile.html')
+        self.response.out.write(template.render(path, template_values))
+
 application = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/mobile', MobilePage),
 ], debug=True)
 
 endpointsapp = endpoints.api_server([CooperApi], restricted=False)
