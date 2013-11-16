@@ -182,16 +182,16 @@ function calculateCredit(){
   var totalPay = round(feeToPay*feeNumber);
   var totalInterest = round(totalPay - amount);
 
-  document.getElementById("txt-feeToPay").value = feeToPay;
-  document.getElementById("txt-totalPay").value = totalPay;
-  document.getElementById("txt-totalInterest").value = totalInterest;
+  document.getElementById("txt-feeToPay").value = '$'+feeToPay;
+  document.getElementById("txt-totalPay").value = '$'+totalPay;
+  document.getElementById("txt-totalInterest").value = '$'+totalInterest;
 }
 
 function round(val){
-  tmp = Math.round(val*100)/100+'';
-  if(tmp.indexOf('.')==-1)
+  tmp = Math.round(val*100)/100 +'';
+  if(tmp.indexOf('.') == -1)
     tmp+='.00';
-  else if(tmp.length-tmp.indexOf('.')==2)
+  else if(tmp.length-tmp.indexOf('.') == 2)
     tmp+='0';
   return tmp;
 }

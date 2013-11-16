@@ -38,7 +38,7 @@
 	    <article class="active splash">
 	        <img src="http://cdn.tapquo.com/lungo/logo.png" class="logo">
 	        <div class="form">
-	            <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
+	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Usuario" id="txt-signup-name" value="">
 	            </fieldset>
 	            <fieldset class="radius-bottom shadow" data-icon="lock"><span class="icon lock"></span>
@@ -55,16 +55,16 @@
 	    <article class="active splash">
 	        <img src="http://cdn.tapquo.com/lungo/logo.png" class="logo">
 	        <div class="form">
-	            <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
+	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Nombre" id="txt-name" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
+	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Cédula" id="txt-document" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
+	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Dirección" id="txt-address" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
+	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Celular" id="txt-cellphone" value="">
 	            </fieldset>
 	          <!--   <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
@@ -97,23 +97,41 @@
     	<article id="creditSimulator" class="active list scroll">
 			<div class="form empty">
 	            <fieldset class="radius-top" data-icon="user">
-	                <input type="text" placeholder="Monto del préstamo" id="txt-amount" value="">
+	                <label>
+					    Monto
+					</label>
+	                <input type="text" placeholder="del préstamo" id="txt-amount" value="">
 	            </fieldset>
 	            <fieldset class="radius-top" data-icon="user">
-	                <input type="text" placeholder="Tasa interés/mes (x.x %)" id="txt-interestRate" value="">
+	            	<label>
+					    Tasa Interés
+					</label>
+	                <input type="text" placeholder="periódica (x.x %) " id="txt-interestRate" value="">
 	            </fieldset>
 	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+					    Cuotas
+					</label>
 	                <input type="text" placeholder="N° cuotas pactadas" id="txt-feeNumber" value="">
 	            </fieldset>
 	            <button class="anchor" data-icon="lock" data-label="Calcular" onclick="calculateCredit()"></button>
 	            <fieldset class="radius-top" data-icon="user">
-	                <input type="text" placeholder="Cuota a pagar" id="txt-feeToPay" value="">
+	            	<label>
+					    Cuota
+					</label>
+	                <input type="text" placeholder="a pagar" id="txt-feeToPay" value="">
 	            </fieldset>
 	            <fieldset class="radius-top" data-icon="user">
+	            	<label>
+					    Total Pagado
+					</label>
 	                <input type="text" placeholder="Valor total pagado" id="txt-totalPay" value="">
 	            </fieldset>
 	            <fieldset class="radius-top" data-icon="user">
-	                <input type="text" placeholder="Total interés pagado" id="txt-totalInterest" value="">
+	            	<label>
+					    Total del Interés
+					</label>
+	                <input type="text" placeholder="interés pagado" id="txt-totalInterest" value="">
 	            </fieldset>
 	            <button class="anchor" data-icon="lock" data-label="Nuevo" onclick="clearData()"></button>
 	        </div>
