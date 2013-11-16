@@ -84,63 +84,63 @@ function initialize(latitude, longitude) {
   //Create markup into the actual position
   var map = new google.maps.Map(document.getElementById("map"), properties);
 
-  var array = [
-  ['Punto 1', '4.5980556,-74.0758333'],
-  ['Punto 2', '4.6080556,-74.0758333'],
-  ['Punto 3', '4.6180556,-74.0758333'],
-  ['Punto 4', '4.6280556,-74.0758333'],
-  ];
+  // var array = [
+  // ['Punto 1', '4.5980556,-74.0758333'],
+  // ['Punto 2', '4.6080556,-74.0758333'],
+  // ['Punto 3', '4.6180556,-74.0758333'],
+  // ['Punto 4', '4.6280556,-74.0758333'],
+  // ];
 
-  showPoints(map, array);
+  // showPoints(map, array);
 
-  marker = new google.maps.Marker({
-  position:latlng,
-  animation:google.maps.Animation.BOUNCE
-  });
+  // marker = new google.maps.Marker({
+  // position:latlng,
+  // animation:google.maps.Animation.BOUNCE
+  // });
 
-  //Geocoder inverse lets get address with latitude and longitute coords
-  geocoder = new google.maps.Geocoder();
-  infoWindow = new google.maps.InfoWindow();
+  // //Geocoder inverse lets get address with latitude and longitute coords
+  // geocoder = new google.maps.Geocoder();
+  // infoWindow = new google.maps.InfoWindow();
 
-  geocoder.geocode({'latLng': latlng}, function(results, status){
-  if(status == google.maps.GeocoderStatus.OK){
-    if(results[0])
-      {
-        directionsDisplay.setMap(map);
-          marker.setMap(map);
-          marker.setPosition(latlng);
+  // geocoder.geocode({'latLng': latlng}, function(results, status){
+  // if(status == google.maps.GeocoderStatus.OK){
+  //   if(results[0])
+  //     {
+  //       directionsDisplay.setMap(map);
+  //         marker.setMap(map);
+  //         marker.setPosition(latlng);
 
-        //First split for descart Country,city
-        var splitAddress = (results[0].formatted_address).split(',',2);
-        //Second split for discard number '-' 
-        var addressShort = splitAddress[0].split('-',2);
-        var splitCity = (results[3].formatted_address).split(',',2);
+  //       //First split for descart Country,city
+  //       var splitAddress = (results[0].formatted_address).split(',',2);
+  //       //Second split for discard number '-' 
+  //       var addressShort = splitAddress[0].split('-',2);
+  //       var splitCity = (results[3].formatted_address).split(',',2);
                   
-        document.getElementById("IAddress").value = addressShort[0];
-        // document.getElementById("ICity").value = splitCity[0];
-        cityReport = splitCity[0];
-        // document.getElementById("ICountry").value = results[5].formatted_address;
-        countryReport = results[5].formatted_address;
+  //       document.getElementById("IAddress").value = addressShort[0];
+  //       // document.getElementById("ICity").value = splitCity[0];
+  //       cityReport = splitCity[0];
+  //       // document.getElementById("ICountry").value = results[5].formatted_address;
+  //       countryReport = results[5].formatted_address;
 
-        //$('#address').text(results[0].formatted_address);
-        //Is showed a dialog with the address in the map
-        infoWindow.setContent(document.getElementById("IAddress").value);
-        infoWindow.open(map, marker);
+  //       //$('#address').text(results[0].formatted_address);
+  //       //Is showed a dialog with the address in the map
+  //       infoWindow.setContent(document.getElementById("IAddress").value);
+  //       infoWindow.open(map, marker);
         
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent(document.getElementById("IAddress").value);
-            infoWindow.open(map, marker);
-        });
-      }
-      else {
-        alert('No results found');
-      }
-    }
-    else
-    {
-      alert("Error");
-    }
-  });
+  //       google.maps.event.addListener(marker, 'click', function(){
+  //           infoWindow.setContent(document.getElementById("IAddress").value);
+  //           infoWindow.open(map, marker);
+  //       });
+  //     }
+  //     else {
+  //       alert('No results found');
+  //     }
+  //   }
+  //   else
+  //   {
+  //     alert("Error");
+  //   }
+  // });
 }
 
 function showPoints(map, sites){
@@ -151,24 +151,38 @@ function showPoints(map, sites){
     //   title: "Hola mundo"
     // });
 
-    directionsDisplay.setMap(map);
-             point1.setMap(map);
-             point1.setPosition(lat1);
+    // directionsDisplay.setMap(map);
+    //          point1.setMap(map);
+    //          point1.setPosition(lat1);
 
-    google.maps.event.addListener(point1, 'click', function(){
-              infoWindow.setContent("ssssss");
-              infoWindow.open(map, point1);
-    });
+    // google.maps.event.addListener(point1, 'click', function(){
+    //           infoWindow.setContent("ssssss");
+    //           infoWindow.open(map, point1);
+    // });
 
-    for (var i = 0; i < sites.length; i++) {
-        var marker = new google.maps.Marker({
-            position: hotels[i][1],hotels[i][2],
-            map: map,
-            title: hotels[i][0],
-        });
-    }
+    // for (var i = 0; i < sites.length; i++) {
+    //     var marker = new google.maps.Marker({
+    //         position: hotels[i][1],hotels[i][2],
+    //         map: map,
+    //         title: hotels[i][0],
+    //     });
+    // }
 }
 
+function calculateCredit(){
+  var amount = document.getElementById("txt-amount").value;
+  var interestRate = document.getElementById("txt-interestRate").value;
+  var feeNumber = document.getElementById("txt-feeNumber").value;
+  
+  var feeToPay = amount*(interestRate/100);
+  var totalPay = feeToPay*feeNumber+parseInt(amount);
+  var totalInterest = amount/totalPay;
+  totalInterest = totalInterest.toFixed(2);
+
+  document.getElementById("txt-feeToPay").value = feeToPay;
+  document.getElementById("txt-totalPay").value = totalPay;
+  document.getElementById("txt-totalInterest").value = totalInterest;
+}
 
 Lungo.Events.init({
    'tap section#splash article div button#enter': function(){
