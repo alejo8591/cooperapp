@@ -28,6 +28,7 @@ var cityReport = "";
 var countryReport = ""; 
 // var fullDateTime = "20130822_040115";
 
+
 function getLocation() {
   // clearData();
   var decode = decodeURIComponent(document.location.search);
@@ -81,105 +82,131 @@ function initialize(latitude, longitude) {
   //directionsDisplay.setMap(map);
 
   //Create markup into the actual position
-  marker = new google.maps.Marker({
-  position:latlng,
-  animation:google.maps.Animation.BOUNCE
-  });
+  var map = new google.maps.Map(document.getElementById("map"), properties);
 
-  //Geocoder inverse lets get address with latitude and longitute coords
-  geocoder = new google.maps.Geocoder();
-  infoWindow = new google.maps.InfoWindow();
+  // var array = [
+  // ['Punto 1', '4.5980556,-74.0758333'],
+  // ['Punto 2', '4.6080556,-74.0758333'],
+  // ['Punto 3', '4.6180556,-74.0758333'],
+  // ['Punto 4', '4.6280556,-74.0758333'],
+  // ];
 
-  geocoder.geocode({'latLng': latlng}, function(results, status){
-  if(status == google.maps.GeocoderStatus.OK){
-    if(results[0])
-      {
-        map = new google.maps.Map(document.getElementById("map"), properties);
-        //map.fitBounds(results[0].geometry.viewport);
-        directionsDisplay.setMap(map);
-          marker.setMap(map);
-          marker.setPosition(latlng);
+  // showPoints(map, array);
 
-        //First split for descart Country,city
-        var splitAddress = (results[0].formatted_address).split(',',2);
-        //Second split for discard number '-' 
-        var addressShort = splitAddress[0].split('-',2);
-        var splitCity = (results[3].formatted_address).split(',',2);
-                  
-        document.getElementById("IAddress").value = addressShort[0];
-        // document.getElementById("ICity").value = splitCity[0];
-        cityReport = splitCity[0];
-        // document.getElementById("ICountry").value = results[5].formatted_address;
-        countryReport = results[5].formatted_address;
-
-        //$('#address').text(results[0].formatted_address);
-        //Is showed a dialog with the address in the map
-        infoWindow.setContent(document.getElementById("IAddress").value);
-        infoWindow.open(map, marker);
-        
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent(document.getElementById("IAddress").value);
-            infoWindow.open(map, marker);
-        });
-      }
-      else {
-        alert('No results found');
-      }
-    }
-    else
-    {
-      alert("Error");
-    }
-  });
-
-  // var myLatlng2 = new google.maps.LatLng(4.5980556,-74.0758333);
-
-  // var marker2 = new google.maps.Marker({
-  //     position: myLatlng2,
-  //     map: map,
-  //     title: 'Hello World!'
+  // marker = new google.maps.Marker({
+  // position:latlng,
+  // animation:google.maps.Animation.BOUNCE
   // });
-  showPlaces();
+
+  // //Geocoder inverse lets get address with latitude and longitute coords
+  // geocoder = new google.maps.Geocoder();
+  // infoWindow = new google.maps.InfoWindow();
+
+  // geocoder.geocode({'latLng': latlng}, function(results, status){
+  // if(status == google.maps.GeocoderStatus.OK){
+  //   if(results[0])
+  //     {
+  //       directionsDisplay.setMap(map);
+  //         marker.setMap(map);
+  //         marker.setPosition(latlng);
+
+  //       //First split for descart Country,city
+  //       var splitAddress = (results[0].formatted_address).split(',',2);
+  //       //Second split for discard number '-' 
+  //       var addressShort = splitAddress[0].split('-',2);
+  //       var splitCity = (results[3].formatted_address).split(',',2);
+                  
+  //       document.getElementById("IAddress").value = addressShort[0];
+  //       // document.getElementById("ICity").value = splitCity[0];
+  //       cityReport = splitCity[0];
+  //       // document.getElementById("ICountry").value = results[5].formatted_address;
+  //       countryReport = results[5].formatted_address;
+
+  //       //$('#address').text(results[0].formatted_address);
+  //       //Is showed a dialog with the address in the map
+  //       infoWindow.setContent(document.getElementById("IAddress").value);
+  //       infoWindow.open(map, marker);
+        
+  //       google.maps.event.addListener(marker, 'click', function(){
+  //           infoWindow.setContent(document.getElementById("IAddress").value);
+  //           infoWindow.open(map, marker);
+  //       });
+  //     }
+  //     else {
+  //       alert('No results found');
+  //     }
+  //   }
+  //   else
+  //   {
+  //     alert("Error");
+  //   }
+  // });
 }
 
-function showPlaces(){
-  var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
-
-    //  var map = new google.maps.Map(document.getElementById('map'), {
-    //   zoom: 10,
-    //   center: new google.maps.LatLng(-33.92, 151.25),
-    //   mapTypeId: google.maps.MapTypeId.ROADMAP
+function showPoints(map, sites){
+    // var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
+    // var point1 = new google.maps.Marker({
+    //   position: lat1,
+    //   map:map,
+    //   title: "Hola mundo"
     // });
 
-    var infowindow = new google.maps.InfoWindow();
+    // directionsDisplay.setMap(map);
+    //          point1.setMap(map);
+    //          point1.setPosition(lat1);
 
-    var marker, i;
+    // google.maps.event.addListener(point1, 'click', function(){
+    //           infoWindow.setContent("ssssss");
+    //           infoWindow.open(map, point1);
+    // });
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
+    // for (var i = 0; i < sites.length; i++) {
+    //     var marker = new google.maps.Marker({
+    //         position: hotels[i][1],hotels[i][2],
+    //         map: map,
+    //         title: hotels[i][0],
+    //     });
+    // }
+}
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
+function calculateCredit(){
+  var amount = document.getElementById("txt-amount").value;
+  var interestRate = document.getElementById("txt-interestRate").value;
+  var feeNumber = document.getElementById("txt-feeNumber").value;
+
+  tmp=Math.pow((1+(interestRate/100)), (-feeNumber));
+  tmpd=1-tmp;
+  tmpn=amount*(interestRate/100);
+  
+  var feeToPay = round(tmpn/tmpd);
+  var totalPay = round(feeToPay*feeNumber);
+  var totalInterest = round(totalPay - amount);
+
+  document.getElementById("txt-feeToPay").value = '$'+feeToPay;
+  document.getElementById("txt-totalPay").value = '$'+totalPay;
+  document.getElementById("txt-totalInterest").value = '$'+totalInterest;
+}
+
+function round(val){
+  tmp = Math.round(val*100)/100 +'';
+  if(tmp.indexOf('.') == -1)
+    tmp+='.00';
+  else if(tmp.length-tmp.indexOf('.') == 2)
+    tmp+='0';
+  return tmp;
+}
+
+function clearData(){
+  document.getElementById("txt-amount").value = "";
+  document.getElementById("txt-interestRate").value = "";
+  document.getElementById("txt-feeNumber").value = "";
+  document.getElementById("txt-feeToPay").value = "";
+  document.getElementById("txt-totalPay").value = "";
+  document.getElementById("txt-totalInterest").value = "";
 }
 
 Lungo.Events.init({
-
    'tap section#splash article div button#enter': function(){
-    // loginUser();
     getLocation();
   },
 });
