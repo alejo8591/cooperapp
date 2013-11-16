@@ -12,11 +12,7 @@ import endpoints
 
 import webapp2
 
-from models.Cooperapp import User
-
-from api.api import CooperappUser
-
-
+from api.api import CooperApi
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
@@ -26,4 +22,4 @@ application = webapp2.WSGIApplication([
     ('/', MainPage),
 ], debug=True)
 
-endpointsapp = endpoints.api_server([CooperappUser], restricted=False)
+endpointsapp = endpoints.api_server([CooperApi], restricted=False)
