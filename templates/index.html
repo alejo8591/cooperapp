@@ -12,31 +12,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="cleartype" content="on">
     <!-- Lungo core CSS -->
-	<link rel="stylesheet" href="package/lungo/lungo.css">
-    <link rel="stylesheet" href="package/lungo/lungo.theme.css">
-    <link rel="stylesheet" href="package/lungo.icon/lungo.icon.css">
+	<link rel="stylesheet" href="../lib/package_backup/lungo/lungo.css">
+    <link rel="stylesheet" href="../lib/package/lungo/lungo.theme.css">
+    <link rel="stylesheet" href="../lib/package_backup/lungo.icon/lungo.icon.css">
 </head>
-<body>
-	<!-- ASIDE MENÚ DE LA APP-->
-    <aside id="optionsMenu" class="active idented">
-        <header data-title="Opciones"></header>
-        <article class="list scroll active">
-        <ul>
-            <li>
-                <strong class="text bold">Opción número 1</strong>
-                <span class="text small">Descripción opción 1</span>
-            </li>
-            <li>
-                <strong class="text bold">Opción número 2</strong>
-                <span class="text small">Descripción opción 2</span>
-            </li>
-        </ul>
-        </article>
-    </aside>
-  
+<body>  
     <section id="splash" data-transition="slide" class="">
 	    <article class="active splash">
-	        <img src="static/images/logo.png" class="logo">
+	        <img src="../static/images/logo.png" class="logo">
 	        <div class="form">
 	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Usuario" id="txt-signup-name" value="">
@@ -53,25 +36,22 @@
 	</section>
 	<section id="createAccount" data-transition="slide" class="">
 	    <article class="active splash">
-	        <img src="static/images/logo.png" class="logo">
+	        <img src="../static/images/logo.png" class="logo">
 	        <div class="form">
 	            <fieldset class="radius-top" data-icon="user">
 	                <input type="text" placeholder="Nombre" id="txt-name" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top" data-icon="info-sign">
 	                <input type="text" placeholder="Cédula" id="txt-document" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top" data-icon="home">
 	                <input type="text" placeholder="Dirección" id="txt-address" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top" data-icon="mobile-phone">
 	                <input type="text" placeholder="Celular" id="txt-cellphone" value="">
 	            </fieldset>
-	          <!--   <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
-	                <input type="text" placeholder="Fecha Nacimiento" id="txt-document" value="">
-	            </fieldset> -->
 	            <button data-view-section="createAccount" class="anchor" data-icon="lock" data-label="Crear Cuenta"></button>
-	            <button data-view-section="splash" class="anchor" data-icon="lock" data-label="Volver"></button>
+	            <button data-view-section="splash" class="anchor" data-icon="backward" data-label="Volver"></button>
 	        </div>
 	        <span class="copyright text thin">Copyright (C) 2013 - <span class="text bold">CooperApp</span></span>
 	    </article>
@@ -88,123 +68,113 @@
         </nav>
 	    </header>
     	<nav data-control="groupbar">
-			<a href="#cooperatives" data-view-article="cooperatives" data-icon="bullhorn" data-label="Cooperativas" class="current"></a>
-			<a href="#creditSimulator" data-view-article="creditSimulator" data-icon="bell" data-label="Simulador"></a>
-			<a href="#accountStatus" data-view-article="accountStatus" data-icon="bullhorn" data-label="Estado de Cuenta"></a>
-			<!-- <a href="#perfil" data-view-article="perfil" data-icon="hand-right" data-label="Perfil"></a> -->
+			<a href="#cooperatives" data-view-article="cooperatives" data-icon="building" data-label="Cooperativas" class="current"></a>
+			<a href="#creditSimulator" data-view-article="creditSimulator" data-icon="money" data-label="Simulador"></a>
+			<a href="#accountStatus" data-view-article="accountStatus" data-icon="info-sign" data-label="Estado de Cuenta"></a>
 		</nav>
 		<!-- CONTENT MENU HEADER -->
     	<article id="creditSimulator" class="list scroll">
 			<div class="form empty">
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	                <label>
 					    Monto
 					</label>
 	                <input type="text" placeholder="del préstamo" id="txt-amount" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 					    Tasa Interés
 					</label>
 	                <input type="text" placeholder="periódica (x.x %) " id="txt-interestRate" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 					    Cuotas
 					</label>
 	                <input type="text" placeholder="N° cuotas pactadas" id="txt-feeNumber" value="">
 	            </fieldset>
-	            <button class="anchor" data-icon="lock" data-label="Calcular" onclick="calculateCredit()"></button>
-	            <fieldset class="radius-top" data-icon="user">
+	            <button class="anchor" data-label="Calcular" onclick="calculateCredit()"></button>
+	            <fieldset class="radius-top">
 	            	<label>
 					    Cuota
 					</label>
 	                <input type="text" placeholder="a pagar" id="txt-feeToPay" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 					    Total Pagado
 					</label>
 	                <input type="text" placeholder="Valor total pagado" id="txt-totalPay" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 					    Total del Interés
 					</label>
 	                <input type="text" placeholder="interés pagado" id="txt-totalInterest" value="">
 	            </fieldset>
-	            <button class="anchor" data-icon="lock" data-label="Nuevo" onclick="clearData()"></button>
+	            <button class="anchor" data-label="Nuevo" onclick="clearData()"></button>
 	        </div>
-
     	</article>
     	<article id="cooperatives" class="active">
 			<div class="form empty">
-                <fieldset class="radius-top" data-icon="truck"><span class="icon truck"></span>
+                <fieldset class="radius-top" data-icon="building">
                     <input type="text" id="ICooperativeName" name="CooperativeName" placeholder="Nombre Cooperativa" requiered="">
                 </fieldset>
-                <fieldset class="radius-top" data-icon="pushpin"><span class="icon pushpin"></span>
+                <fieldset class="radius-top" data-icon="home">
                      <input type="text" id="IAddress" name="Address" placeholder="Dirección Cooperativa">
                 </fieldset>
-                
-                <output id="filesInfo"></output>
-                <output id="statusSave"></output>
-
                 <a href="#" id="sendReportNow" class="button anchor" data-icon="eye-open" data-label="Consultar"><span class="icon eye-open"></span></a>
             </div>
             <div id="map" class="form empty" style="width: 80%; height: 80%;"></div>
     	</article>
     	<article id="accountStatus" class="list scroll">
     		<div class="form empty">
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 	            		Afiliado
 	            	</label>
 	                <input type="text" placeholder="Nombre" id="txt-name" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 	            		Coop.
 	            	</label>
 	                <input type="text" placeholder="Cooperativa" id="txt-cooperative" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 	            		Monto
 	            	</label>
 	                <input type="text" placeholder="Monto a pagar" id="txt-payAmount" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 	            		Saldo
 	            	</label>
 	                <input type="text" placeholder="Saldo" id="txt-payRestant" value="">
 	            </fieldset>
-	            <fieldset class="radius-top" data-icon="user">
+	            <fieldset class="radius-top">
 	            	<label>
 	            		Próx. Pago
 	            	</label>
 	                <input type="text" placeholder="Próximo pago" id="txt-nextPayDate" value="">
 	            </fieldset>
-	          <!--   <fieldset class="radius-top" data-icon="user"><span class="icon user"></span>
-	                <input type="text" placeholder="Fecha Nacimiento" id="txt-document" value="">
-	            </fieldset> -->
-	            <button data-view-section="createAccount" class="anchor" data-icon="lock" data-label="Pagar"></button>
+	            <button data-view-section="createAccount" class="anchor" data-label="Pagar"></button>
 	        </div>
     	</article>
     	<footer>
     		<nav data-control="groupbar">
-				<a href="#cooperatives" data-view-article="cooperatives" data-icon="bullhorn" data-label="Cooperativas" class="current"></a>
-				<a href="#creditSimulator" data-view-article="creditSimulator" data-icon="bell" data-label="Simulador"></a>
-				<a href="#accountStatus" data-view-article="accountStatus" data-icon="bell" data-label="Estado de Cuenta"></a>
-				<!-- <a href="#perfil" data-view-article="perfil" data-icon="hand-right" data-label="Perfil"></a> -->
+				<a href="#cooperatives" data-view-article="cooperatives" data-icon="building" data-label="Cooperativas" class="current"></a>
+				<a href="#creditSimulator" data-view-article="creditSimulator" data-icon="money" data-label="Simulador"></a>
+				<a href="#accountStatus" data-view-article="accountStatus" data-icon="info-sign" data-label="Estado de Cuenta"></a>
 			</nav>
     	</footer>
     </section>
 
-    <script src="components/quojs/quo.js"></script>
-    <script src="package/lungo/lungo.js"></script>
+    <script src="../lib/components/quojs/quo.js"></script>
+    <script src="../lib/package_backup/lungo/lungo.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script src="static/js/scripts.js"></script>
+    <script src="../static/js/scripts.js"></script>
 	<script>
         Lungo.init({
             name: 'CooperApp',
