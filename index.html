@@ -95,7 +95,29 @@
 		</nav>
 		<!-- CONTENT MENU HEADER -->
     	<article id="creditSimulator" class="list scroll">
-			Simulador de Crédito
+			<div class="form empty">
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Monto del préstamo" id="txt-amount" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Tasa interés/mes (x.x %)" id="txt-interestRate" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="N° cuotas pactadas" id="txt-feeNumber" value="">
+	            </fieldset>
+	            <button class="anchor" data-icon="lock" data-label="Calcular"></button>
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Cuota a pagar" id="txt-feeToPay" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Valor total pagado" id="txt-totalPay" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Total interés pagado" id="txt-totalInterest" value="">
+	            </fieldset>
+	            <button data-view-section="splash" class="anchor" data-icon="lock" data-label="Volver"></button>
+	        </div>
+
     	</article>
     	<article id="cooperatives" class="active">
 			<div class="form empty">

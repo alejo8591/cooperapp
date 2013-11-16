@@ -84,7 +84,14 @@ function initialize(latitude, longitude) {
   //Create markup into the actual position
   var map = new google.maps.Map(document.getElementById("map"), properties);
 
-  showPoints(map);
+  var array = [
+  ['Punto 1', '4.5980556,-74.0758333'],
+  ['Punto 2', '4.6080556,-74.0758333'],
+  ['Punto 3', '4.6180556,-74.0758333'],
+  ['Punto 4', '4.6280556,-74.0758333'],
+  ];
+
+  showPoints(map, array);
 
   marker = new google.maps.Marker({
   position:latlng,
@@ -99,8 +106,6 @@ function initialize(latitude, longitude) {
   if(status == google.maps.GeocoderStatus.OK){
     if(results[0])
       {
-        // map = new google.maps.Map(document.getElementById("map"), properties);
-        //map.fitBounds(results[0].geometry.viewport);
         directionsDisplay.setMap(map);
           marker.setMap(map);
           marker.setPosition(latlng);
@@ -138,13 +143,13 @@ function initialize(latitude, longitude) {
   });
 }
 
-function showPoints(map){
-    var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
-    var point1 = new google.maps.Marker({
-      position: lat1,
-      map:map,
-      title: "Hola mundo"
-    });
+function showPoints(map, sites){
+    // var lat1 = new google.maps.LatLng(14.5980556,-74.0758333);
+    // var point1 = new google.maps.Marker({
+    //   position: lat1,
+    //   map:map,
+    //   title: "Hola mundo"
+    // });
 
     directionsDisplay.setMap(map);
              point1.setMap(map);
@@ -154,6 +159,14 @@ function showPoints(map){
               infoWindow.setContent("ssssss");
               infoWindow.open(map, point1);
     });
+
+    for (var i = 0; i < sites.length; i++) {
+        var marker = new google.maps.Marker({
+            position: hotels[i][1],hotels[i][2],
+            map: map,
+            title: hotels[i][0],
+        });
+    }
 }
 
 
