@@ -9,7 +9,9 @@ var finalLongitude = 0.0;
 var latLng = null;
 
 var marker;
-var infowindow;
+var infoWindow;
+var infoPoints = [];
+var cant;
 var geocoder;
 var currentdate = new Date();
 // var datetime;
@@ -140,7 +142,7 @@ function initialize(latitude, longitude) {
 }
 
 function showPoints(map, sites){
-
+  
     // var lat1 = new google.maps.LatLng(sites[0][1], sites[0][2]);
     // var point1 = new google.maps.Marker({
     //   position: lat1,
@@ -156,23 +158,32 @@ function showPoints(map, sites){
     //           infoWindow.setContent("ssssss");
     //           infoWindow.open(map, point1);
     // });
-
+    
+    
     for (var i = 0; i < sites.length; i++) {
+      cant = 0;
+      infoPoints.push(new google.maps.InfoWindow());
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(sites[i][1], sites[i][2]),
             map: map,
             title: sites[i][0],
         });
+
         directionsDisplay.setMap(map);
              marker.setMap(map);
              marker.setPosition(marker.position);
-
-        google.maps.event.addListener(marker, 'click', function(){
-              infoWindow.setContent("abcdefg");
-              infoWindow.open(map, marker);
-    });
+        cant++;
     }
+
+      google.maps.event.addListener(marker, 'click', function(){
+        for (var i = 0; i <= cant; i++) {
+              infoPoints[i].getContent();
+              infoPoints[i].open(map, marker);  
+        }
+      });
 }
+
+  
 
 function calculateCredit(){
   var amount = document.getElementById("txt-amount").value;
