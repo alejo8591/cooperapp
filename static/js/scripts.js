@@ -72,7 +72,7 @@ function initialize(latitude, longitude) {
 
   var properties = {
     center:latlng,
-    zoom:12,
+    zoom:10,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
