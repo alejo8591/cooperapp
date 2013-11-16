@@ -28,7 +28,6 @@ var cityReport = "";
 var countryReport = ""; 
 // var fullDateTime = "20130822_040115";
 
-
 function getLocation() {
   // clearData();
   var decode = decodeURIComponent(document.location.search);
@@ -73,7 +72,7 @@ function initialize(latitude, longitude) {
 
   var properties = {
     center:latlng,
-    zoom:16,
+    zoom:12,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
@@ -206,7 +205,7 @@ function round(val){
 }
 
 function clearData(){
-  document.getElementById("txt-amount").value = " ";
+  document.getElementById("txt-amount").value = "";
   document.getElementById("txt-interestRate").value = "";
   document.getElementById("txt-feeNumber").value = "";
   document.getElementById("txt-feeToPay").value = "";
@@ -238,6 +237,20 @@ Lungo.Events.init({
     user = validateData(document.getElementById('txt-signup-name').value, "Usuario", "user");
 
     if(user && password)
+    {
       Lungo.Router.section("main"); 
+      getLocation();
+    }
+  },
+  'tap section#main article div button#calculateCred': function(){
+    var amount = false;
+    var interestRate = false;
+    var feeNumber = false;
+    feeNumber = validateData(document.getElementById('txt-feeNumber').value, "Número Cuotas", "calendar");
+    interestRate = validateData(document.getElementById('txt-interestRate').value, "Tasa Interés", "legal");
+    amount = validateData(document.getElementById('txt-amount').value, "Monto", "money");
+
+    if(amount && interestRate && feeNumber)
+      calculateCredit();
   },
 });

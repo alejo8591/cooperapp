@@ -28,8 +28,8 @@
 	                <input type="password" placeholder="Password" id="txt-signup-password" value="">
 	            </fieldset>
 	            <br>
-	            <button id="enter" class="anchor" data-icon="lock" data-label="Ingresar"></button>
-	            <button data-view-section="createAccount" class="anchor" data-icon="lock" data-label="Crear Cuenta"></button>
+	            <button id="enter" class="anchor" data-label="Ingresar"></button>
+	            <button data-view-section="createAccount" class="anchor" data-label="Crear Cuenta"></button>
 	        </div>
 	        <span class="copyright text thin">Copyright (C) 2013 - <span class="text bold">CooperApp</span></span>
 	    </article>
@@ -73,7 +73,7 @@
 			<a href="#accountStatus" data-view-article="accountStatus" data-icon="info-sign" data-label="Estado de Cuenta"></a>
 		</nav>
 		<!-- CONTENT MENU HEADER -->
-    	<article id="creditSimulator" class="list">
+    	<article id="creditSimulator" class="list scroll">
 			<div class="form empty">
 	            <fieldset class="radius-top">
 	                <label>
@@ -91,31 +91,31 @@
 	            	<label>
 					    Cuotas
 					</label>
-	                <input type="text" placeholder="N° cuotas pactadas" id="txt-feeNumber" value="">
+	                <input type="number" placeholder="N° cuotas pactadas" id="txt-feeNumber" value="">
 	            </fieldset>
-	            <button class="anchor" data-label="Calcular" onclick="calculateCredit()"></button>
+	            <button id="calculateCred" class="anchor" data-label="Calcular"></button>
 	            <fieldset class="radius-top">
 	            	<label>
 					    Cuota
 					</label>
-	                <input type="text" placeholder="a pagar" id="txt-feeToPay" value="">
+	                <input type="text" placeholder="a pagar" id="txt-feeToPay" readonly="true">
 	            </fieldset>
 	            <fieldset class="radius-top">
 	            	<label>
 					    Total Pagado
 					</label>
-	                <input type="text" placeholder="Valor total pagado" id="txt-totalPay" value="">
+	                <input type="text" placeholder="Valor total pagado" id="txt-totalPay" readonly="true">
 	            </fieldset>
 	            <fieldset class="radius-top">
 	            	<label>
 					    Total del Interés
 					</label>
-	                <input type="text" placeholder="interés pagado" id="txt-totalInterest" value="">
+	                <input type="text" placeholder="interés pagado" id="txt-totalInterest" readonly="true">
 	            </fieldset>
 	            <button class="anchor" data-label="Nuevo" onclick="clearData()"></button>
 	        </div>
     	</article>
-    	<article id="cooperatives" class="active">
+    	<article id="cooperatives" class="active scroll">
 			<div class="form empty">
                 <fieldset class="radius-top" data-icon="building">
                     <input type="text" id="ICooperativeName" name="CooperativeName" placeholder="Nombre Cooperativa" requiered="">
