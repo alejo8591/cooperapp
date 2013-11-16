@@ -29,7 +29,7 @@ var countryReport = "";
 // var fullDateTime = "20130822_040115";
 
 function getLocation() {
-  // clearData();
+  clearData();
   var decode = decodeURIComponent(document.location.search);
   // if(!decode.substring(1))  
       navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
@@ -40,9 +40,6 @@ function handleSuccess(position) {
   initialLatitude = position.coords.latitude;
   initialLongitude = position.coords.longitude; 
   var displayText = position.coords.latitude+","+position.coords.longitude;
-
-  //display the string with initial car latitudeand longitude
-  // document.getElementById("vehiclePosition").innerHTML = displayText;
   initialize(initialLatitude, initialLongitude);
 }
 
