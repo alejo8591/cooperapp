@@ -163,7 +163,7 @@ function showPoints(map, sites){
 
     for (var i = 0; i < sites.length; i++) {
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng (sites[i][1], sites[i][2]),
+            position: new google.maps.LatLng(sites[i][1], sites[i][2]),
             map: map,
             title: sites[i][0],
         });
@@ -214,8 +214,30 @@ function clearData(){
   document.getElementById("txt-totalInterest").value = "";
 }
 
+function validateData(value, desc, icon) {
+    if(! value)
+      Lungo.Notification.error(desc, "No ha ingresado "+desc, icon, 3);
+    else if( desc.indexOf("Contraseña") != -1 ) {
+      if( value.length < 8 )
+        Lungo.Notification.error("Muy corta", "Contraseña debe ser mayor a 8 caracteres", "warning-sign", 3);
+      else 
+        return true;
+    }
+    else
+      return true;
+}
+
 Lungo.Events.init({
    'tap section#splash article div button#enter': function(){
     getLocation();
+  },
+  'tap section#splash article div button#enter': function(){
+    var user = false;
+    var password = false;
+    password = validateData(document.getElementById('txt-signup-password').value, "Contraseña", "lock");
+    user = validateData(document.getElementById('txt-signup-name').value, "Usuario", "user");
+
+    if(user && password)
+      Lungo.Router.section("main"); 
   },
 });
