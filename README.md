@@ -7,12 +7,18 @@
 > For a basic tutorial NodeJS [see the link below](http://nodeguide.com/beginner.html).
 
 #### 1.2 Installing CoffeeScript
+CoffeeScript is a little language that compiles into JavaScript. Underneath that awkward Java-esque patina, JavaScript has always had a gorgeous heart. CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.
 
 ` sudo npm install -g coffee-script`
 
 > For a basic tutorial CoffeeScript [see the link below](http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/).
 
 #### 1.3 Installing the CLI for GruntJS
+
+###### Why use a task runner?
+In one word: automation. The less work you have to do when performing repetitive tasks like minification, compilation, unit testing, linting, etc, the easier your job becomes. After you've configured it, a task runner can do most of that mundane work for you—and your team—with basically zero effort. 
+
+###### Install GruntJS
 
 ` sudo npm install -g grunt-cli `
 
@@ -60,19 +66,22 @@ Once installation completes, you can invoke phonegap on command line for further
 
 ## 2. Project Configuration
 
-#### Clone Repository
+#### 2.1 Clone Repository
 
 ` git clone git@github.com:alejo8591/cooperapp.git `
 
+#### 2.2 Installing dependencies Package
 
-### Install and initialize project in Cordova (PhoneGap)
+After installing the packages and software point 1. proceed to install packages and dependencies for the development process
 
-#### Install Cordova (PhoneGap)
+` npm install `
 
-#### Create Project
+#### 2.3 Install and initialize project in Cordova (PhoneGap)
+
+##### 2.3.1 Create Project
 ` cordova create cooperapp com.mobile.cooperapp "CooperApp" `
 
-#### Add Platform for initial Tests
+#### 2.4 Add Platform for initial Tests
 ` cordova platform add firefoxos `
 
 ## 3. Versioning
@@ -81,7 +90,7 @@ For transparency and insight into our release cycle, and for striving to maintai
 
 Releases will be numbered with the following format:
 
-`<major>.<minor>.<patch>`
+` <major>.<minor>.<patch> `
 
 And constructed with the following guidelines:
 
