@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>CooperApp</title>
+	<meta name="description" content="">
+    <meta name="author" content="Henry Corredor Gómez (@hencogo)">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+    <!-- Lungo core CSS -->
+	<link rel="stylesheet" href="../lib/package_backup/lungo/lungo.css">
+    <link rel="stylesheet" href="../lib/package/lungo/lungo.theme.css">
+    <link rel="stylesheet" href="../lib/package_backup/lungo.icon/lungo.icon.css">
+</head>
+<body>  
+    <section id="splash" data-transition="slide" class="">
+	    <article class="active splash">
+	        <img src="../static/images/logo.png" class="logo">
+	        <div class="form">
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Usuario" id="txt-signup-name" value="">
+	            </fieldset>
+	            <fieldset class="radius-bottom shadow" data-icon="lock"><span class="icon lock"></span>
+	                <input type="password" placeholder="Password" id="txt-signup-password" value="">
+	            </fieldset>
+	            <br>
+	            <button id="enter" class="anchor" data-label="Ingresar"></button>
+	            <button data-view-section="createAccount" class="anchor" data-label="Crear Cuenta"></button>
+	        </div>
+	        <span class="copyright text thin">Copyright (C) 2013 - <span class="text bold">CooperApp</span></span>
+	    </article>
+	</section>
+	<section id="createAccount" data-transition="slide" class="">
+	    <article class="active splash">
+	        <img src="../static/images/logo.png" class="logo">
+	        <div class="form">
+	            <fieldset class="radius-top" data-icon="user">
+	                <input type="text" placeholder="Nombre" id="txt-name" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="info-sign">
+	                <input type="text" placeholder="Cédula" id="txt-document" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="home">
+	                <input type="text" placeholder="Dirección" id="txt-address" value="">
+	            </fieldset>
+	            <fieldset class="radius-top" data-icon="mobile-phone">
+	                <input type="text" placeholder="Celular" id="txt-cellphone" value="">
+	            </fieldset>
+	            <button data-view-section="createAccount" class="anchor" data-icon="lock" data-label="Crear Cuenta"></button>
+	            <button data-view-section="splash" class="anchor" data-icon="backward" data-label="Volver"></button>
+	        </div>
+	        <span class="copyright text thin">Copyright (C) 2013 - <span class="text bold">CooperApp</span></span>
+	    </article>
+	</section>
+
+    <section id="main" data-transition="slide">
+    	<header data-title="CooperApp">
+    	<nav class="left">
+    		<a href="#" data-view-section="back">
+    		<span class="icon chevron-left"></span></a>
+    	</nav>
+    	<nav class="on-right">
+            <button data-view-section="splash"><span class="icon user"></span></button>
+        </nav>
+	    </header>
+    	<nav data-control="groupbar">
+			<a href="#cooperatives" data-view-article="cooperatives" data-icon="building" data-label="Cooperativas" class="current"></a>
+			<a href="#creditSimulator" data-view-article="creditSimulator" data-icon="money" data-label="Simulador"></a>
+			<a href="#accountStatus" data-view-article="accountStatus" data-icon="info-sign" data-label="Estado de Cuenta"></a>
+			<a href="#testIntegrate" data-view-article="testIntegrate" data-icon="info-sign" data-label="Test Integrate"></a>
+		</nav>
+		<!-- CONTENT MENU HEADER -->
+    	<article id="creditSimulator" class="list scroll">
+			<div class="form empty">
+	            <fieldset class="radius-top">
+	                <label>
+					    Monto
+					</label>
+	                <input type="text" placeholder="del préstamo" id="txt-amount" value="">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+					    Tasa Interés
+					</label>
+	                <input type="text" placeholder="periódica (x.x %) " id="txt-interestRate" value="">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+					    Cuotas
+					</label>
+	                <input type="number" placeholder="N° cuotas pactadas" id="txt-feeNumber" value="">
+	            </fieldset>
+	            <button id="calculateCred" class="anchor" data-label="Calcular"></button>
+	            <fieldset class="radius-top">
+	            	<label>
+					    Cuota
+					</label>
+	                <input type="text" placeholder="a pagar" id="txt-feeToPay" readonly="true">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+					    Total Pagado
+					</label>
+	                <input type="text" placeholder="Valor total pagado" id="txt-totalPay" readonly="true">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+					    Total del Interés
+					</label>
+	                <input type="text" placeholder="interés pagado" id="txt-totalInterest" readonly="true">
+	            </fieldset>
+	            <button class="anchor" data-label="Nuevo" onclick="clearData()"></button>
+	        </div>
+    	</article>
+    	<article id="cooperatives" class="active scroll">
+			<div class="form empty">
+                <fieldset class="radius-top" data-icon="building">
+                    <input type="text" id="ICooperativeName" name="CooperativeName" placeholder="Nombre Cooperativa" requiered="">
+                </fieldset>
+                <fieldset class="radius-top" data-icon="home">
+                     <input type="text" id="IAddress" name="Address" placeholder="Dirección Cooperativa">
+                </fieldset>
+                <a href="#" id="sendReportNow" class="button anchor" data-icon="eye-open" data-label="Consultar"><span class="icon eye-open"></span></a>
+            </div>
+            <div id="map" class="form empty" style="width: 80%; height: 80%;"></div>
+    	</article>
+    	<article id="accountStatus" class="list scroll">
+    		<div class="form empty">
+	            <fieldset class="radius-top">
+	            	<label>
+	            		Afiliado
+	            	</label>
+	                <input type="text" placeholder="Nombre" id="txt-name" value="">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+	            		Coop.
+	            	</label>
+	                <input type="text" placeholder="Cooperativa" id="txt-cooperative" value="">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+	            		Monto
+	            	</label>
+	                <input type="text" placeholder="Monto a pagar" id="txt-payAmount" value="">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+	            		Saldo
+	            	</label>
+	                <input type="text" placeholder="Saldo" id="txt-payRestant" value="">
+	            </fieldset>
+	            <fieldset class="radius-top">
+	            	<label>
+	            		Próx. Pago
+	            	</label>
+	                <input type="text" placeholder="Próximo pago" id="txt-nextPayDate" value="">
+	            </fieldset>
+	            <button data-view-section="createAccount" class="anchor" data-label="Pagar"></button>
+	        </div>
+    	</article>
+    	<article id="testIntegrate" class="list scroll">
+			<div class="form empty">
+	        </div>
+    	</article>
+
+    	<footer>
+    		<nav data-control="groupbar">
+				<a href="#cooperatives" data-view-article="cooperatives" data-icon="building" data-label="Cooperativas" class="current"></a>
+				<a href="#creditSimulator" data-view-article="creditSimulator" data-icon="money" data-label="Simulador"></a>
+				<a href="#accountStatus" data-view-article="accountStatus" data-icon="info-sign" data-label="Estado de Cuenta"></a>
+			</nav>
+    	</footer>
+    </section>
+
+    <script src="../lib/components/quojs/quo.js"></script>
+    <script src="../lib/package_backup/lungo/lungo.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="../static/js/scripts.js"></script>
+	<script>
+        Lungo.init({
+            name: 'CooperApp',
+            version: '1.0 Beta',
+            resources:[]
+            // history: false
+        });
+    </script>
+</body>
+</html>
