@@ -1,4 +1,32 @@
+## Install developer enviroment
+
+#### Clone Repository
+
+` git clone git@github.com:alejo8591/cooperapp.git `
+
+#### Installing the CLI for GruntJS
+
+` npm install -g grunt-cli `
+
+#### Installing sublime-coffee-compile for Sublime Text 2/3
+
+To install CoffeeCompile, simply use [Package Control](http://wbond.net/sublime_packages/package_control).
+
+You'll need to setup some paths in the settings file before you can use the plugin. Instructions are
+included in the settings file, don't worry! The settings file can be accessed through this menu:
+`Sublime Text > Preferences > Package Settings > CoffeeCompile > Settings - User`
+
+For MacOSX configure node_path and coffee_path:
+```javascript
+{
+"node_path": "/usr/local/bin/",
+"coffee_path": "/usr/local/bin/"
+}
+```
+
 ## Install and initialize project in Cordova (PhoneGap)
+
+#### Install Cordova (PhoneGap)
 
 #### Create Project
 ` cordova create cooperapp com.mobile.cooperapp "CooperApp" `
