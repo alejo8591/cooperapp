@@ -1,12 +1,12 @@
-## Install developer enviroment
+## Install development environment
 
-#### Clone Repository
+#### Installing CoffeeScript
 
-` git clone git@github.com:alejo8591/cooperapp.git `
+` sudo npm install -g coffee-script`
 
 #### Installing the CLI for GruntJS
 
-` npm install -g grunt-cli `
+` sudo npm install -g grunt-cli `
 
 #### Installing sublime-coffee-compile for Sublime Text 2/3
 
@@ -24,7 +24,13 @@ For MacOSX configure node_path and coffee_path:
 }
 ```
 
-## Install and initialize project in Cordova (PhoneGap)
+## Project Configuration
+
+#### Clone Repository
+
+` git clone git@github.com:alejo8591/cooperapp.git `
+
+### Install and initialize project in Cordova (PhoneGap)
 
 #### Install Cordova (PhoneGap)
 
