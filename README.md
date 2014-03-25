@@ -2,19 +2,9 @@
 
 #### Create Project
 ` cordova create cooperapp com.mobile.cooperapp "CooperApp" `
-###### Message for Success
-> Creating a new cordova project with name "CooperApp" and id "com.mobile.cooperapp" at location "/path/to/files/cooperapp"
 
 #### Add Platform for initial Tests
 ` cordova platform add firefoxos `
-
-> Creating firefoxos project...
-> Creating Firefox OS project
-> Project Path platforms/firefoxos
-> Package Name com.mobile.cooperapp
-> Project Name CooperApp
-> Generating config.xml from defaults for platform "firefoxos"
-> Preparing firefoxos project
 
 ## Versioning
 
