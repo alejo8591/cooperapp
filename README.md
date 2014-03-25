@@ -19,8 +19,8 @@ included in the settings file, don't worry! The settings file can be accessed th
 For MacOSX configure node_path and coffee_path:
 ```javascript
 {
-"node_path": "/usr/local/Cellar/node/x.x.x/bin",
-"coffee_path": "/usr/local/share/npm/lib/node_modules/coffee-script/bin"
+"node_path": "/usr/local/bin/",
+"coffee_path": "/usr/local/bin/"
 }
 ```
 
