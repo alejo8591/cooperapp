@@ -9,7 +9,9 @@ var finalLongitude = 0.0;
 var latLng = null;
 
 var marker;
-var infowindow;
+var infoWindow;
+var infoPoints = [];
+var cant;
 var geocoder;
 var currentdate = new Date();
 // var datetime;
@@ -29,7 +31,7 @@ var countryReport = "";
 // var fullDateTime = "20130822_040115";
 
 function getLocation() {
-  // clearData();
+  clearData();
   var decode = decodeURIComponent(document.location.search);
   // if(!decode.substring(1))  
       navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
@@ -40,9 +42,6 @@ function handleSuccess(position) {
   initialLatitude = position.coords.latitude;
   initialLongitude = position.coords.longitude; 
   var displayText = position.coords.latitude+","+position.coords.longitude;
-
-  //display the string with initial car latitudeand longitude
-  // document.getElementById("vehiclePosition").innerHTML = displayText;
   initialize(initialLatitude, initialLongitude);
 }
 
@@ -72,7 +71,7 @@ function initialize(latitude, longitude) {
 
   var properties = {
     center:latlng,
-    zoom:16,
+    zoom:10,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
 
@@ -81,6 +80,17 @@ function initialize(latitude, longitude) {
   //directionsDisplay.setMap(map);
 
   //Create markup into the actual position
+  var map = new google.maps.Map(document.getElementById("map"), properties);
+
+  var array = [
+  ['Punto 1', '4.5980556','-74.0758333'],
+  ['Punto 2', '4.6080556','-74.0758333'],
+  ['Punto 3', '4.7180556','-74.0758333'],
+  ['Punto 4', '4.8280556','-74.0758333'],
+  ];
+
+  showPoints(map, array);
+
   marker = new google.maps.Marker({
   position:latlng,
   animation:google.maps.Animation.BOUNCE
@@ -94,8 +104,6 @@ function initialize(latitude, longitude) {
   if(status == google.maps.GeocoderStatus.OK){
     if(results[0])
       {
-        map = new google.maps.Map(document.getElementById("map"), properties);
-        //map.fitBounds(results[0].geometry.viewport);
         directionsDisplay.setMap(map);
           marker.setMap(map);
           marker.setPosition(latlng);
@@ -117,10 +125,10 @@ function initialize(latitude, longitude) {
         infoWindow.setContent(document.getElementById("IAddress").value);
         infoWindow.open(map, marker);
         
-        google.maps.event.addListener(marker, 'click', function(){
-            infoWindow.setContent(document.getElementById("IAddress").value);
-            infoWindow.open(map, marker);
-        });
+        // google.maps.event.addListener(marker, 'click', function(){
+        //     infoWindow.setContent(document.getElementById("IAddress").value);
+        //     infoWindow.open(map, marker);
+        // });
       }
       else {
         alert('No results found');
@@ -131,55 +139,126 @@ function initialize(latitude, longitude) {
       alert("Error");
     }
   });
-
-  // var myLatlng2 = new google.maps.LatLng(4.5980556,-74.0758333);
-
-  // var marker2 = new google.maps.Marker({
-  //     position: myLatlng2,
-  //     map: map,
-  //     title: 'Hello World!'
-  // });
-  showPlaces();
 }
 
-function showPlaces(){
-  var locations = [
-      ['Bondi Beach', -33.890542, 151.274856, 4],
-      ['Coogee Beach', -33.923036, 151.259052, 5],
-      ['Cronulla Beach', -34.028249, 151.157507, 3],
-      ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-      ['Maroubra Beach', -33.950198, 151.259302, 1]
-    ];
-
-    //  var map = new google.maps.Map(document.getElementById('map'), {
-    //   zoom: 10,
-    //   center: new google.maps.LatLng(-33.92, 151.25),
-    //   mapTypeId: google.maps.MapTypeId.ROADMAP
+function showPoints(map, sites){
+  
+    // var lat1 = new google.maps.LatLng(sites[0][1], sites[0][2]);
+    // var point1 = new google.maps.Marker({
+    //   position: lat1,
+    //   map:map,
+    //   title: "Hola mundo"
     // });
 
-    var infowindow = new google.maps.InfoWindow();
+    // directionsDisplay.setMap(map);
+    //          point1.setMap(map);
+    //          point1.setPosition(lat1);
 
-    var marker, i;
+    // google.maps.event.addListener(point1, 'click', function(){
+    //           infoWindow.setContent("ssssss");
+    //           infoWindow.open(map, point1);
+    // });
+    
+    
+    for (var i = 0; i < sites.length; i++) {
+      cant = 0;
+      infoPoints.push(new google.maps.InfoWindow());
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(sites[i][1], sites[i][2]),
+            map: map,
+            title: sites[i][0],
+        });
 
-    for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
+        directionsDisplay.setMap(map);
+             marker.setMap(map);
+             marker.setPosition(marker.position);
+        cant++;
     }
+
+      google.maps.event.addListener(marker, 'click', function(){
+        for (var i = 0; i <= cant; i++) {
+              infoPoints[i].getContent();
+              infoPoints[i].open(map, marker);  
+        }
+      });
+}
+
+  
+
+function calculateCredit(){
+  var amount = document.getElementById("txt-amount").value;
+  var interestRate = document.getElementById("txt-interestRate").value;
+  var feeNumber = document.getElementById("txt-feeNumber").value;
+
+  tmp=Math.pow((1+(interestRate/100)), (-feeNumber));
+  tmpd=1-tmp;
+  tmpn=amount*(interestRate/100);
+  
+  var feeToPay = round(tmpn/tmpd);
+  var totalPay = round(feeToPay*feeNumber);
+  var totalInterest = round(totalPay - amount);
+
+  document.getElementById("txt-feeToPay").value = '$'+feeToPay;
+  document.getElementById("txt-totalPay").value = '$'+totalPay;
+  document.getElementById("txt-totalInterest").value = '$'+totalInterest;
+}
+
+function round(val){
+  tmp = Math.round(val*100)/100 +'';
+  if(tmp.indexOf('.') == -1)
+    tmp+='.00';
+  else if(tmp.length-tmp.indexOf('.') == 2)
+    tmp+='0';
+  return tmp;
+}
+
+function clearData(){
+  document.getElementById("txt-amount").value = "";
+  document.getElementById("txt-interestRate").value = "";
+  document.getElementById("txt-feeNumber").value = "";
+  document.getElementById("txt-feeToPay").value = "";
+  document.getElementById("txt-totalPay").value = "";
+  document.getElementById("txt-totalInterest").value = "";
+}
+
+function validateData(value, desc, icon) {
+    if(! value)
+      Lungo.Notification.error(desc, "No ha ingresado "+desc, icon, 3);
+    else if( desc.indexOf("Contraseña") != -1 ) {
+      if( value.length < 8 )
+        Lungo.Notification.error("Muy corta", "Contraseña debe ser mayor a 8 caracteres", "warning-sign", 3);
+      else 
+        return true;
+    }
+    else
+      return true;
 }
 
 Lungo.Events.init({
-
    'tap section#splash article div button#enter': function(){
-    // loginUser();
     getLocation();
+  },
+  'tap section#splash article div button#enter': function(){
+    var user = false;
+    var password = false;
+    password = validateData(document.getElementById('txt-signup-password').value, "Contraseña", "lock");
+    user = validateData(document.getElementById('txt-signup-name').value, "Usuario", "user");
+
+    if(user && password)
+    {
+      Lungo.Router.section("main"); 
+      getLocation();
+    }
+  },
+  'tap section#main article div button#calculateCred': function(){
+    var amount = false;
+    var interestRate = false;
+    var feeNumber = false;
+    feeNumber = validateData(document.getElementById('txt-feeNumber').value, "Número Cuotas", "calendar");
+    interestRate = validateData(document.getElementById('txt-interestRate').value, "Tasa Interés", "legal");
+    amount = validateData(document.getElementById('txt-amount').value, "Monto", "money");
+
+    if(amount && interestRate && feeNumber)
+      calculateCredit();
   },
 });
