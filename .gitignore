@@ -43,4 +43,4 @@ index.yaml
 node_modules
 
 # Cordova (PhoneGap) ignore files
-CooperApp/
+# CooperApp/
