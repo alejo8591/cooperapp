@@ -1,14 +1,24 @@
-## 1. Install development environment
+## 1. Install Development Environment
 
-#### 1.1 Installing CoffeeScript
+#### 1.1 Installing NodeJS
+
+[Download the Node.js source code or a pre-built installer for your platform](http://nodejs.org/download/), and start developing today.
+
+> For a basic tutorial NodeJS [see the link below](http://nodeguide.com/beginner.html).
+
+#### 1.2 Installing CoffeeScript
 
 ` sudo npm install -g coffee-script`
 
-#### 1.2 Installing the CLI for GruntJS
+> For a basic tutorial CoffeeScript [see the link below](http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/).
+
+#### 1.3 Installing the CLI for GruntJS
 
 ` sudo npm install -g grunt-cli `
 
-#### 1.3 Installing sublime-coffee-compile for Sublime Text 2/3
+> For a basic tutorial GruntJS [see the link below](http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/).
+
+#### 1.4 Installing sublime-coffee-compile for Sublime Text 2/3
 
 To install CoffeeCompile, simply use [Package Control](http://wbond.net/sublime_packages/package_control).
 
@@ -30,14 +40,14 @@ For MacOSX configure node_path and coffee_path*:
 ![alt text](https://github-camo.global.ssl.fastly.net/56da0e7db09cda09628c5c6c58965c8c3169e79a/687474703a2f2f692e696d6775722e636f6d2f324a3439512e706e67 "Firefox OS Simulatro")
 
 
-#### 1.4 Installing Firefox OS Simulator for test App
+#### 1.5 Installing Firefox OS Simulator for Test App
 
 To install the simulator just load up Firefox and head to [the simulator download page(FirefoxOS simulator 1.x stable and ADB Helper)](https://ftp.mozilla.org/pub/mozilla.org/labs/fxos-simulator/). From there you can install it to Firefox OS. Hit the button on the left of the simulator dashboard to run the simulator and you should see the “device” appear:
 
 ![alt text](http://cl.ly/image/2k2T2X3E3S1f/Screen%20Shot%202013-07-01%20at%2011.42.08.png "Firefox OS Simulatro")
 
 
-#### 1.5 Installing Apache Cordova (PhoneGap)
+#### 1.6 Installing Apache Cordova (PhoneGap)
 
 To Install 3.4: Ensure that you have NodeJS installed, then open your commandline and run the following:
 
@@ -45,7 +55,10 @@ To Install 3.4: Ensure that you have NodeJS installed, then open your commandlin
             
 Once installation completes, you can invoke phonegap on command line for further help.
 
-## Project Configuration
+
+> For a basic tutorial Apache Cordova (PhoneGap) and FirefoxOS [see the link below](https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/).
+
+## 2. Project Configuration
 
 #### Clone Repository
 
@@ -62,7 +75,7 @@ Once installation completes, you can invoke phonegap on command line for further
 #### Add Platform for initial Tests
 ` cordova platform add firefoxos `
 
-## Versioning
+## 3. Versioning
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
 
@@ -79,7 +92,7 @@ And constructed with the following guidelines:
 For more information on SemVer, please visit http://semver.org/.
 
 
-## Bug tracker
+## 4. Bug tracker
 
 Have a bug or a feature request? [Please open a new issue](https://github.com/alejo8591/cooperapp/issues). 
 + **¡Allow For!** Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
