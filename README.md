@@ -1,4 +1,16 @@
+## Install developer enviroment
+
+#### Clone Repository
+
+` git clone git@github.com:alejo8591/cooperapp.git `
+
+#### Installing the CLI for GruntJS
+
+` npm install -g grunt-cli `
+
 ## Install and initialize project in Cordova (PhoneGap)
+
+#### Install Cordova (PhoneGap)
 
 #### Create Project
 ` cordova create cooperapp com.mobile.cooperapp "CooperApp" `
