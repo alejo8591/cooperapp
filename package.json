@@ -11,6 +11,8 @@
     "grunt-contrib-cssmin": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-htmlmin": "",
-    "grunt-groc" :""
+    "grunt-contrib-htmlhint": "",
+    "grunt-groc" :"",
+    "grunt-coffeelint": ""
   }
 }

@@ -67,7 +67,33 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "index"
               },
               "depth": 3,
-              "outline": []
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 5,
+                    "title": "Bind Event Listeners",
+                    "slug": "bind-event-listeners"
+                  },
+                  "depth": 5
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 5,
+                    "title": "Deviceready Event Handler",
+                    "slug": "deviceready-event-handler"
+                  },
+                  "depth": 5
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 5,
+                    "title": "Update DOM on a Received Event",
+                    "slug": "update-dom-on-a-received-event"
+                  },
+                  "depth": 5
+                }
+              ]
             }
           ]
         }
