@@ -105,6 +105,11 @@ The task is carried out in our called `doc` in the `Gruntfile.coffee` file:
 
 `$ grunt doc`
 
+##### 3.3 Markdown Languages
+* This is intended as a quick reference and showcase for [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Other reference wit help](https://help.github.com/articles/github-flavored-markdown)
+* [Markdown Here Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
+
 ## 4. Versioning
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
