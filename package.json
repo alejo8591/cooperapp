@@ -11,6 +11,6 @@
     "grunt-contrib-cssmin": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-htmlmin": "",
-    "grunt-jsdoc": "~0.5.4"
+    "grunt-groc" :""
   }
 }

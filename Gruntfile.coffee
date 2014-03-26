@@ -7,21 +7,11 @@ module.exports = (grunt) ->
       compile:
         files:
           'www/js/index.js':'www/coffee/index.coffee'
-    # Generate Documentation
-    #jsdoc: 
-      #dist:
-        #src: ['www/js/*.js']
-        #options: 
-          #destination: 'doc'
-    #docco:
-      #debug:
-        #src: ['www/coffee/*.coffee']
-        #options:
-          #output: 'doc'
+    # Generate Documentation with Docco and Groc
     groc:
       coffeescript: [
       	"www/coffee/*.coffee"
-      	"README.md"
+      	"index.md"
       ]
       options:
         "out": "doc/"
@@ -43,10 +33,11 @@ module.exports = (grunt) ->
           'CooperApp/www/index.html': 'www/index.html'
   # Load modules for gruntjs
   grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-jsdoc'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-htmlmin'
   grunt.loadNpmTasks 'grunt-groc'
   # Load all Task
+  # Task for compile files
   grunt.registerTask 'compile', ['coffee', 'uglify', 'htmlmin']
+  # Task for Documentation Code
   grunt.registerTask 'doc', ['groc']

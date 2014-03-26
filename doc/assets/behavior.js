@@ -13,175 +13,24 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/Users/alejo8591/Documents/cooperapp/README.md",
-        "projectPath": "README.md",
+        "sourcePath": "/Users/alejo8591/Documents/cooperapp/index.md",
+        "projectPath": "index.md",
         "targetPath": "index",
         "pageTitle": "index",
-        "title": "index"
+        "firstHeader": {
+          "type": "heading",
+          "data": {
+            "level": 1,
+            "title": "Documentation for CooperApp",
+            "slug": "documentation-for-cooperapp",
+            "isFileHeader": true
+          },
+          "depth": 1
+        },
+        "title": "Documentation for CooperApp"
       },
       "depth": 1,
-      "outline": [
-        {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "1. Install Development Environment",
-            "slug": "1-install-development-environment"
-          },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "1.1 Installing NodeJS",
-                "slug": "11-installing-nodejs"
-              },
-              "depth": 4
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "1.2 Installing CoffeeScript",
-                "slug": "12-installing-coffeescript"
-              },
-              "depth": 4
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "1.3 Installing the CLI for GruntJS",
-                "slug": "13-installing-the-cli-for-gruntjs"
-              },
-              "depth": 4,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 6,
-                    "title": "Why use a task runner?",
-                    "slug": "why-use-a-task-runner"
-                  },
-                  "depth": 6
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 6,
-                    "title": "Install GruntJS",
-                    "slug": "install-gruntjs"
-                  },
-                  "depth": 6
-                }
-              ]
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "1.4 Installing sublime-coffee-compile for Sublime Text 2/3",
-                "slug": "14-installing-sublime-coffee-compile-for-sublime-text-23"
-              },
-              "depth": 4,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 5,
-                    "title": "Run the CoffeeCompile plugin and you should see appear:",
-                    "slug": "run-the-coffeecompile-plugin-and-you-should-see-appear"
-                  },
-                  "depth": 5
-                }
-              ]
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "1.5 Installing Firefox OS Simulator for Test App",
-                "slug": "15-installing-firefox-os-simulator-for-test-app"
-              },
-              "depth": 4
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "1.6 Installing Apache Cordova (PhoneGap)",
-                "slug": "16-installing-apache-cordova-phonegap"
-              },
-              "depth": 4
-            }
-          ]
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "2. Project Configuration",
-            "slug": "2-project-configuration"
-          },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "2.1 Clone Repository",
-                "slug": "21-clone-repository"
-              },
-              "depth": 4
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "2.2 Installing dependencies Package",
-                "slug": "22-installing-dependencies-package"
-              },
-              "depth": 4
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "2.3 Install and initialize project in Cordova (PhoneGap)",
-                "slug": "23-install-and-initialize-project-in-cordova-phonegap"
-              },
-              "depth": 4,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 5,
-                    "title": "2.3.1 Create Project",
-                    "slug": "231-create-project"
-                  },
-                  "depth": 5
-                }
-              ]
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "2.4 Add Platform for initial Tests",
-                "slug": "24-add-platform-for-initial-tests"
-              },
-              "depth": 4
-            }
-          ]
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "3. Versioning",
-            "slug": "3-versioning"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "4. Bug tracker",
-            "slug": "4-bug-tracker"
-          },
-          "depth": 2
-        }
-      ]
+      "outline": []
     }, {
       "type": "folder",
       "data": {
