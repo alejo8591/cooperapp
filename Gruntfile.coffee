@@ -59,6 +59,14 @@ module.exports = (grunt) ->
           collapseWhitespace: true
         files:
           'CooperApp/www/index.html': 'www/index.html'
+    # Copy images folder
+    copy:
+      main:
+        files: [
+          expand:true
+          src: ['www/css/images/*']
+          dest: 'CooperApp/www/css/images/'
+        ]
   # Load modules for gruntjs
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -67,10 +75,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-groc'
   grunt.loadNpmTasks 'grunt-coffeelint'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
+  grunt.loadNpmTasks 'grunt-contrib-copy'
   # Load all Task
   # Task for test files
   grunt.registerTask 'test', ['coffeelint']
   # Task for compile files
-  grunt.registerTask 'compile', ['coffee', 'cssmin', 'uglify', 'htmlmin', 'htmlhint']
+  grunt.registerTask 'compile', ['coffee', 'cssmin', 'uglify', 'htmlmin', 'htmlhint', 'copy']
   # Task for Documentation Code
   grunt.registerTask 'doc', ['groc']

@@ -13,6 +13,7 @@
     "grunt-contrib-htmlmin": "",
     "grunt-contrib-htmlhint": "",
     "grunt-groc" :"",
-    "grunt-coffeelint": ""
+    "grunt-coffeelint": "",
+    "grunt-contrib-copy": ""
   }
 }
