@@ -9,7 +9,7 @@
 #### 1.2 Installing CoffeeScript
 CoffeeScript is a little language that compiles into JavaScript. Underneath that awkward Java-esque patina, JavaScript has always had a gorgeous heart. CoffeeScript is an attempt to expose the good parts of JavaScript in a simple way.
 
-` sudo npm install -g coffee-script`
+`$ sudo npm install -g coffee-script`
 
 > For a basic tutorial CoffeeScript [see the link below](http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/).
 
@@ -20,7 +20,7 @@ In one word: automation. The less work you have to do when performing repetitive
 
 ###### Install GruntJS
 
-` sudo npm install -g grunt-cli `
+`$ sudo npm install -g grunt-cli `
 
 > For a basic tutorial GruntJS [see the link below](http://coding.smashingmagazine.com/2013/10/29/get-up-running-grunt/).
 
@@ -74,17 +74,38 @@ Once installation completes, you can invoke phonegap on command line for further
 
 After installing the packages and software point 1. proceed to install packages and dependencies for the development process
 
-` npm install `
+`$ npm install `
 
 #### 2.3 Install and initialize project in Cordova (PhoneGap)
 
 ##### 2.3.1 Create Project
-` cordova create cooperapp com.mobile.cooperapp "CooperApp" `
+`$ cordova create cooperapp com.mobile.cooperapp "CooperApp" `
 
 #### 2.4 Add Platform for initial Tests
-` cordova platform add firefoxos `
+`$ cordova platform add firefoxos `
 
-## 3. Versioning
+
+## 3. Documentation
+
+[Groc](http://nevir.github.io/groc/) takes your documented code, and in an admission that people aren't machines, generates documentation that follows the spirit of literate programming. Take a look at the self-generated documentation, and see if it appeals to you!
+
+It is very heavily influenced by Jeremy Ashkenas' [Docco](http://jashkenas.github.com/docco/), and is an attempt to further enhance the idea (thus, groc can't tout the same quick 'n dirty principles of docco).
+
+###### Generate Documentation using [Groc](http://nevir.github.io/groc/)
+
+[Groc](http://nevir.github.io/groc/) In our case we use to generate project documentation with a task through GruntJS:
+
+##### 3.1 Installing Groc Tools
+
+`$ npm install grunt-groc`
+
+##### 3.2 Generate Documentation using Groc
+
+The task is carried out in our called `doc` in the `Gruntfile.coffee` file:
+
+`$ grunt doc`
+
+## 4. Versioning
 
 For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
 
@@ -101,7 +122,7 @@ And constructed with the following guidelines:
 For more information on SemVer, please visit http://semver.org/.
 
 
-## 4. Bug tracker
+## 5. Bug tracker
 
 Have a bug or a feature request? [Please open a new issue](https://github.com/alejo8591/cooperapp/issues). 
 + **¡Allow For!** Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
