@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><title>www/coffee/index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="www/coffee/index"><meta name="groc-project-path" content="www/coffee/index.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">www/coffee/index.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="nv">app = </span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
+<li>App Represents the constructor for CooperApp with PhoneGap</li>
+<li>@return { object } of input</li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">initialize: </span><span class="nf">-&gt;</span>
+    <span class="nx">@bindEvents</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
+<li>Bind Event Listeners</li>
+<li>Bind any events that are required on startup. Common events are:</li>
+<li>'load', 'deviceready', 'offline', and 'online'.</li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">bindEvents: </span><span class="nf">-&gt;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="s">&quot;deviceready&quot;</span><span class="p">,</span> <span class="nx">@onDeviceReady</span><span class="p">,</span> <span class="kc">false</span>
+  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><ul>
+<li>Deviceready Event Handler</li>
+<li>The scope of 'this' is the event. In order to call the 'receivedEvent'</li>
+<li>function, we must explicity call 'app.receivedEvent(...);'</li>
+</ul></div></div><div class="code"><div class="wrapper">  <span class="nv">onDeviceReady: </span><span class="nf">-&gt;</span>
+    <span class="nx">app</span><span class="p">.</span><span class="nx">receivedEvent</span> <span class="s">&quot;deviceready&quot;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Update DOM on a Received Event</p></div></div><div class="code"><div class="wrapper">  <span class="nv">receivedEvent: </span><span class="nf">(id) -&gt;</span>
+    <span class="nv">parentElement = </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+    <span class="nv">listeningElement = </span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s">&quot;.listening&quot;</span><span class="p">)</span>
+    <span class="nv">receivedElement = </span><span class="nx">parentElement</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s">&quot;.received&quot;</span><span class="p">)</span>
+    <span class="nx">listeningElement</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;display:none;&quot;</span>
+    <span class="nx">receivedElement</span><span class="p">.</span><span class="nx">setAttribute</span> <span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;display:block;&quot;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Received Event: &quot;</span> <span class="o">+</span> <span class="nx">id</span></div></div></div></div></body></html>

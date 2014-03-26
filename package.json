@@ -1,14 +1,14 @@
 {
-  "name": "CooperApp",
+  "name": "cooperapp",
+  "version": "0.1.0",
   "author": "Alejandro Romero",
   "company": "AgilApps",
-  "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-jshint": "~0.6.3",
     "grunt-contrib-nodeunit": "~0.2.0",
     "grunt-contrib-uglify": "~0.2.2",
-    "grunt-css": "",
+    "grunt-contrib-cssmin": "",
     "grunt-contrib-coffee": "",
     "grunt-contrib-htmlmin": "",
     "grunt-jsdoc": "~0.5.4"

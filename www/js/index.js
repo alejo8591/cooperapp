@@ -1,36 +1,44 @@
-/** This is a OnDeviceRady for Apache Cordova (PhoneGap) */
-var app = {
-    /** App Represents the constructor for CooperApp with PhoneGap 
-     * @constructor 
+(function() {
+  var app;
+
+  app = {
+
+    /**
+     * App Represents the constructor for CooperApp with PhoneGap
+     * @return { object } of input
      */
     initialize: function() {
-        this.bindEvents();
+      return this.bindEvents();
     },
-    /** Bind Event Listeners 
-     *
+
+    /**
+     * Bind Event Listeners
      * Bind any events that are required on startup. Common events are:
      * 'load', 'deviceready', 'offline', and 'online'.
-     * @constructor
      */
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+      return document.addEventListener("deviceready", this.onDeviceReady, false);
     },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
+
+    /**
+     * Deviceready Event Handler
+     * The scope of 'this' is the event. In order to call the 'receivedEvent'
+     * function, we must explicity call 'app.receivedEvent(...);'
+     */
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+      return app.receivedEvent("deviceready");
     },
-    // Update DOM on a Received Event
+
+    /** Update DOM on a Received Event */
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+      var listeningElement, parentElement, receivedElement;
+      parentElement = document.getElementById(id);
+      listeningElement = parentElement.querySelector(".listening");
+      receivedElement = parentElement.querySelector(".received");
+      listeningElement.setAttribute("style", "display:none;");
+      receivedElement.setAttribute("style", "display:block;");
+      return console.log("Received Event: " + id);
     }
-};
+  };
+
+}).call(this);
