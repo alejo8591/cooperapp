@@ -23,6 +23,13 @@ module.exports = (grunt) ->
       my_target:
         files:
           'CooperApp/www/js/index.js': 'www/js/index.js'
+    # Validate html files with htmlhint.
+    htmlhint:
+      html1:
+        options:
+          'tag-pair': true
+         src:
+          ['www/*.html']
     # minified for HTML files
     htmlmin:
       dist:
@@ -35,9 +42,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-htmlmin'
+  grunt.loadNpmTasks 'grunt-htmlhint'
   grunt.loadNpmTasks 'grunt-groc'
   # Load all Task
   # Task for compile files
-  grunt.registerTask 'compile', ['coffee', 'uglify', 'htmlmin']
+  grunt.registerTask 'compile', ['coffee', 'uglify', 'htmlmin', 'htmlhint']
   # Task for Documentation Code
   grunt.registerTask 'doc', ['groc']
