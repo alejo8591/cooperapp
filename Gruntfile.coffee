@@ -18,9 +18,14 @@ module.exports = (grunt) ->
           'level': 'error'
     # CoffeeScript files
     coffee:
-      compile:
+      compileBare:
+        options:
+          bare: true
         files:
-          'www/js/index.js':'www/coffee/index.coffee'
+          'www/js/index.js':[
+            'www/coffee/index.coffee'
+            'www/coffee/calculator.coffee'
+          ]
     # Generate Documentation with Docco and Groc
     groc:
       coffeescript: [
