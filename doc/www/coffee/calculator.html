@@ -11,7 +11,7 @@
   &lt;label id="txt-totalInterest"&gt;Total Interés Pagado:&lt;/label&gt;
   &lt;button class="ui-btn ui-btn-b" id="btnResetSimulatorFields"&gt;Nuevo&lt;/button&gt;
 &lt;/form&gt;
-</code></pre></div></div><div class="code"><div class="wrapper">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;ready for simulator&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="functions">Functions</h4></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="functioncalcualtecredit">Function <code>calcualteCredit</code></h5>
+</code></pre></div></div><div class="code"><div class="wrapper">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;ready for simulator&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="functions">Functions</h4></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="functioncalculatecredit">Function <code>calculateCredit</code></h5>
 
 <p>Function to calculate the loan amount according to the form in HTML</p></div></div><div class="code"><div class="wrapper">  <span class="nv">calculateCredit = </span><span class="nf">-&gt;</span>
     <span class="nv">amount = </span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#txt-amount&#39;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
@@ -28,7 +28,7 @@
     <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#resultsCalculateCredit&#39;</span><span class="p">).</span><span class="nx">append</span> <span class="s">&#39;&lt;label id=&quot;txt-totalInterest&quot;&gt;Total Interés Pagado:&lt;strong class=&quot;simulator&quot;&gt;&#39;</span> <span class="o">+</span> <span class="s">&#39; $ &#39;</span> <span class="o">+</span> <span class="nx">totalInterest</span> <span class="o">+</span> <span class="s">&#39;&lt;/strong&gt;&lt;/label&gt;&#39;</span>
   </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="functionround">Function <code>round</code></h5>
 
-<p>supplementing function <code>calcualteCredit</code> to round values ​​in JS</p></div></div><div class="code"><div class="wrapper">  <span class="nv">round = </span><span class="nf">(val) -&gt;</span>
+<p>supplementing function <code>calculateCredit</code> to round values ​​in JS</p></div></div><div class="code"><div class="wrapper">  <span class="nv">round = </span><span class="nf">(val) -&gt;</span>
     <span class="nv">tmp = </span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">val</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="o">+</span> <span class="s">&quot;&quot;</span>
     <span class="k">if</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s">&quot;.&quot;</span><span class="p">)</span> <span class="o">is</span> <span class="o">-</span><span class="mi">1</span>
       <span class="nx">tmp</span> <span class="o">+=</span> <span class="s">&quot;.00&quot;</span>
@@ -46,12 +46,12 @@
 
 <p>Listen Events with jQuery</p></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="eventbtncalculatecredit">Event <code>#btnCalculateCredit</code></h4>
 
-<p>Event <code>#btnCalculateCredit</code> to calculate loan with <code>calcualteCredit</code></p></div></div><div class="code"><div class="wrapper">  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#btnCalculateCredit&#39;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+<p>Event <code>#btnCalculateCredit</code> to calculate loan with <code>calculateCredit</code></p></div></div><div class="code"><div class="wrapper">  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#btnCalculateCredit&#39;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;click on calculateCredit&#39;</span>
     <span class="nx">calculateCredit</span><span class="p">()</span>
     <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="eventbtnresetsimulatorfields">Event <code>#btnResetSimulatorFields</code></h4>
 
-<p>Event <code>#btnResetSimulatorFields</code> reset fields and clean info with <code>calcualteCredit</code></p></div></div><div class="code"><div class="wrapper">  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#btnResetSimulatorFields&#39;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+<p>Event <code>#btnResetSimulatorFields</code> reset fields and clean info with <code>calculateCredit</code></p></div></div><div class="code"><div class="wrapper">  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#btnResetSimulatorFields&#39;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nf">-&gt;</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;click on btnResetSimulatorFields&#39;</span>
     <span class="nx">clearData</span><span class="p">()</span>
     <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">()</span></div></div></div></div></body></html>

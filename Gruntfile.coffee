@@ -26,6 +26,12 @@ module.exports = (grunt) ->
         files:
           'www/js/index.js':'www/coffee/index.coffee'
           'www/js/calculator.js': 'www/coffee/calculator.coffee'
+          'www/js/geolocation.js': 'www/coffee/geolocation.coffee'
+          'www/js/login.js': 'www/coffee/login.coffee'
+          'www/js/verification-login.js': 'www/coffee/verification-login.coffee'
+          'www/js/create-user.js': 'www/coffee/create-user.coffee'
+          'www/js/profile.js': 'www/coffee/profile.coffee'
+          'www/js/edit-profile.js': 'www/coffee/edit-profile.coffee'
     # Generate Documentation with Docco and Groc
     groc:
       coffeescript: [
@@ -48,7 +54,13 @@ module.exports = (grunt) ->
         files:
           'CooperApp/www/js/index.js': [
             'www/js/index.js'
+            'www/js/login.js'
+            'www/js/verification-login.js'
+            'www/js/create-user.js'
+            'www/js/profile.js'
+            'www/js/edit-profile.js'
             'www/js/calculator.js'
+            'www/js/geolocation.js'
           ]
           'CooperApp/www/js/jquery-1.11.0.min.js': 'www/js/jquery-1.11.0.js'
           'CooperApp/www/js/jquery.mobile-1.4.2.min.js': 'www/js/jquery.mobile-1.4.2.js'

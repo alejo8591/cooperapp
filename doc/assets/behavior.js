@@ -118,6 +118,90 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "CoffeeScript"
                 },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/create-user.coffee",
+                "projectPath": "www/coffee/create-user.coffee",
+                "targetPath": "www/coffee/create-user",
+                "pageTitle": "www/coffee/create-user",
+                "title": "create-user"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/edit-profile.coffee",
+                "projectPath": "www/coffee/edit-profile.coffee",
+                "targetPath": "www/coffee/edit-profile",
+                "pageTitle": "www/coffee/edit-profile",
+                "title": "edit-profile"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/geolocation.coffee",
+                "projectPath": "www/coffee/geolocation.coffee",
+                "targetPath": "www/coffee/geolocation",
+                "pageTitle": "www/coffee/geolocation",
+                "title": "geolocation"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Geolocation for Maps",
+                    "slug": "geolocation-for-maps"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 5,
+                        "title": "DirectionService lets calculate directions with GoogleMaps",
+                        "slug": "directionservice-lets-calculate-directions-with-googlemaps"
+                      },
+                      "depth": 5
+                    }
+                  ]
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
                 "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/index.coffee",
                 "projectPath": "www/coffee/index.coffee",
                 "targetPath": "www/coffee/index",
@@ -152,6 +236,69 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "depth": 5
                 }
               ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/login.coffee",
+                "projectPath": "www/coffee/login.coffee",
+                "targetPath": "www/coffee/login",
+                "pageTitle": "www/coffee/login",
+                "title": "login"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/profile.coffee",
+                "projectPath": "www/coffee/profile.coffee",
+                "targetPath": "www/coffee/profile",
+                "pageTitle": "www/coffee/profile",
+                "title": "profile"
+              },
+              "depth": 3,
+              "outline": []
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/verification-login.coffee",
+                "projectPath": "www/coffee/verification-login.coffee",
+                "targetPath": "www/coffee/verification-login",
+                "pageTitle": "www/coffee/verification-login",
+                "title": "verification-login"
+              },
+              "depth": 3,
+              "outline": []
             }
           ]
         }

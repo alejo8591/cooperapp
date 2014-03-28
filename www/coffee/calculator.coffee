@@ -25,7 +25,7 @@ $(document).on 'pageinit', '#simulator', (event)->
   console.log 'ready for simulator'
   # #### Functions
 
-  # ##### Function `calcualteCredit`
+  # ##### Function `calculateCredit`
   # Function to calculate the loan amount according to the form in HTML
   calculateCredit = ->
     amount = $('#txt-amount').val()
@@ -42,7 +42,7 @@ $(document).on 'pageinit', '#simulator', (event)->
     $('#resultsCalculateCredit').append '<label id="txt-totalInterest">Total Interés Pagado:<strong class="simulator">' + ' $ ' + totalInterest + '</strong></label>'
   
   # ##### Function `round`
-  # supplementing function `calcualteCredit` to round values ​​in JS
+  # supplementing function `calculateCredit` to round values ​​in JS
   round = (val) ->
     tmp = Math.round(val * 100) / 100 + ""
     if tmp.indexOf(".") is -1
@@ -64,14 +64,14 @@ $(document).on 'pageinit', '#simulator', (event)->
   # Listen Events with jQuery
 
   # #### Event `#btnCalculateCredit`
-  # Event `#btnCalculateCredit` to calculate loan with `calcualteCredit`
+  # Event `#btnCalculateCredit` to calculate loan with `calculateCredit`
   $('#btnCalculateCredit').on 'click', ->
     console.log 'click on calculateCredit'
     calculateCredit()
     event.preventDefault()
 
   # #### Event `#btnResetSimulatorFields`
-  # Event `#btnResetSimulatorFields` reset fields and clean info with `calcualteCredit`
+  # Event `#btnResetSimulatorFields` reset fields and clean info with `calculateCredit`
   $('#btnResetSimulatorFields').on 'click', ->
     console.log 'click on btnResetSimulatorFields'
     clearData()
