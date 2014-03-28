@@ -5,7 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-        <link rel="stylesheet" href="css/cooperapp.min.css">
+        <link rel="stylesheet" href="css/cooperapp.min.css" />
         <title>CooperApp</title>
     </head>
     <body>
@@ -62,14 +62,13 @@
                 <h1>Préstamos</h1>
             </div><!-- /header -->
             <div data-role="content">
-                <input type="number" id="txt-amount" pattern="[0-9]*" placeholder="Digite el monto">
-                <input type="number" id="txt-interestRate" placeholder="Digite tasa de interés (x.x%)">
-                <input type="number" id="txt-feeNumber" pattern="[0-9]*" placeholder="Digite N° de cuotas pactadas">
-                <button id="btnCalculateCredit" class="ui-btn ui-btn-b">Calcular</button>
-                <label id="txt-feeToPay">Cuota a Pagar:</label>
-                <label id="txt-totalPay">Valor Total Pagado:</label>
-                <label id="txt-totalInterest">Total Interés Pagado:</label>
-                <button class="ui-btn ui-btn-b" id="btnResetSimulatorFields">Nuevo</button>
+                    <input type="number" id="txt-amount" pattern="[0-9]*" placeholder="Digite el monto">
+                    <input type="number" id="txt-interestRate" placeholder="Digite tasa de interés (x.x%)">
+                    <input type="number" id="txt-feeNumber" pattern="[0-9]*" placeholder="Digite N° de cuotas pactadas">
+                    <button id="btnCalculateCredit" class="ui-btn ui-btn-b">Calcular</button>
+                    <div id="resultsCalculateCredit">
+                    </div>
+                    <button class="ui-btn ui-btn-b" id="btnResetSimulatorFields">Nuevo</button>
             </div>  
             <div data-role="footer" data-position="fixed">
             <div data-role="navbar">

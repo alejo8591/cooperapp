@@ -16,16 +16,16 @@ module.exports = (grunt) ->
           'level': 'ignore'
         'no_empty_param_list':
           'level': 'error'
+        'max_line_length':
+          'level': 'ignore'
     # CoffeeScript files
     coffee:
       compileBare:
         options:
           bare: true
         files:
-          'www/js/index.js':[
-            'www/coffee/index.coffee'
-            'www/coffee/calculator.coffee'
-          ]
+          'www/js/index.js':'www/coffee/index.coffee'
+          'www/js/calculator.js': 'www/coffee/calculator.coffee'
     # Generate Documentation with Docco and Groc
     groc:
       coffeescript: [
@@ -46,7 +46,10 @@ module.exports = (grunt) ->
         banner: '/*! Development or minified for <%= pkg.author %> of <%= pkg.company %> [dat] co  */\n/*! <%= pkg.name %>: Version <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       my_target:
         files:
-          'CooperApp/www/js/index.js': 'www/js/index.js'
+          'CooperApp/www/js/index.js': [
+            'www/js/index.js'
+            'www/js/calculator.js'
+          ]
           'CooperApp/www/js/jquery-1.11.0.min.js': 'www/js/jquery-1.11.0.js'
           'CooperApp/www/js/jquery.mobile-1.4.2.min.js': 'www/js/jquery.mobile-1.4.2.js'
     # Validate html files with htmlhint.
@@ -83,8 +86,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-copy'
   # Load all Task
   # Task for test files
-  grunt.registerTask 'test', ['coffeelint']
+  grunt.registerTask 'test', ['coffeelint', 'htmlhint']
   # Task for compile files
-  grunt.registerTask 'compile', ['coffee', 'cssmin', 'uglify', 'htmlmin', 'htmlhint', 'copy']
+  grunt.registerTask 'compile', ['coffee', 'cssmin', 'uglify', 'htmlmin', 'copy']
   # Task for Documentation Code
   grunt.registerTask 'doc', ['groc']

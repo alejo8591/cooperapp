@@ -60,6 +60,64 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "foldPrefix": "^",
                   "name": "CoffeeScript"
                 },
+                "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/calculator.coffee",
+                "projectPath": "www/coffee/calculator.coffee",
+                "targetPath": "www/coffee/calculator",
+                "pageTitle": "www/coffee/calculator",
+                "title": "calculator"
+              },
+              "depth": 3,
+              "outline": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Calculator for Loan Money",
+                    "slug": "calculator-for-loan-money"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 5,
+                        "title": "Code HTML of the form for the simulator in jQuery Mobile",
+                        "slug": "code-html-of-the-form-for-the-simulator-in-jquery-mobile"
+                      },
+                      "depth": 5
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Functions",
+                        "slug": "functions"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Events",
+                        "slug": "events"
+                      },
+                      "depth": 4
+                    }
+                  ]
+                }
+              ]
+            }, {
+              "type": "file",
+              "data": {
+                "language": {
+                  "nameMatchers": [".coffee", "Cakefile"],
+                  "pygmentsLexer": "coffee-script",
+                  "multiLineComment": ["###*", " *", " ###", "###", "#", "###", "###*", "#", "###"],
+                  "strictMultiLineEnd": false,
+                  "singleLineComment": ["#"],
+                  "ignorePrefix": "}",
+                  "foldPrefix": "^",
+                  "name": "CoffeeScript"
+                },
                 "sourcePath": "/Users/alejo8591/Documents/cooperapp/www/coffee/index.coffee",
                 "projectPath": "www/coffee/index.coffee",
                 "targetPath": "www/coffee/index",
