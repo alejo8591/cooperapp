@@ -2,13 +2,13 @@ $(document).on "pageinit", "#login", (event) ->
   console.log "Loading delegate event for login"
   $("#loginUser").on "click", ->
     console.log "click on login"
-    email = $("#userEmail").val()
-    password = $("#userPassword").val()
+    email = $("#userEmailLogin").val()
+    password = $("#userPasswordLogin").val()
 
     if email isnt "" and password isnt "" and email is localStorage.getItem('email') and password is localStorage.getItem('password')
       cookie = '5852c0ef0719d1e0922e8e9806a4f5aa'
 
-      if sessionStorage.getItem 'cookie' isnt cookie or sessionStorage.length is 0
+      if sessionStorage.getItem('cookie') isnt cookie or sessionStorage.length is 0
         sessionStorage.setItem 'cookie', cookie
       $.mobile.changePage '#index'
     else

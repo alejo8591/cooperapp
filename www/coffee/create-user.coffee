@@ -2,11 +2,11 @@ $(document).on "pageinit", "#createUser", (event) ->
   console.log "Loading delegate event to createUser"
   $("#saveUser").on "click", ->
     console.log "Click on SaveUser"
-    email = $("#userEmail").val()
-    firstname = $("#firstname").val()
-    lastname = $("#lastname").val()
-    phone = $("#phone").val()
-    password = $("#userPassword").val()
+    email = $("#userEmailCreateUser").val()
+    firstname = $("#firstnameCreateUser").val()
+    lastname = $("#lastnameCreateUser").val()
+    phone = $("#phoneCreateUser").val()
+    password = $("#userPasswordCreateUser").val()
     # hash created with [Free online md5 hash calculator](http://md5-hash-online.waraxe.us/)
     cookie = '5852c0ef0719d1e0922e8e9806a4f5aa'
 

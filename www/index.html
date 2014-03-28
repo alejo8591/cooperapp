@@ -14,16 +14,23 @@
         <!-- ########################### home page ##################### -->
         <div data-role="page" id="home">
           <div data-role="header">
+            <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
             <h1>CooperApp</h1>
+            <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
           </div><!-- /header -->
           <div data-role="content">
+            <br />
+            <h3>Bienvenido a</h3>
+            <br />
+            <br />
+            <img src="img/cooper_logo.png" alt="CooperApp" width="300" />
           </div><!-- /content -->
           <div data-role="footer" data-position="fixed">
             <div data-role="navbar">
               <ul>
                 <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
                 <li><a href="#simulator" data-icon="star">Simulador</a></li>
-                <li><a href="#markets" data-icon="gear">Marketplace</a></li>
+                <li><a href="#markets" data-icon="shop">Marketplace</a></li>
               </ul>
             </div><!-- /navbar -->
           </div><!-- /footer -->
@@ -41,12 +48,12 @@
             </div>
             <div data-role="content">
                 <form id="loginForm">
-                    <label for="userEmail">Email</label>
-                    <input type="email" id="userEmail" name="email" />
-                    <label for="userPassword">Contraseña</label>
-                    <input type="password" id="userPassword" name="password" />
-                    <a href="#" data-role="button" id="loginUser">Ingresar</a>
-                    <a href="#createUser" data-role="button">Registrarme!</a>
+                    <label for="userEmailLogin">Email</label>
+                    <input type="email" id="userEmailLogin" name="email" />
+                    <label for="userPasswordLogin">Contraseña</label>
+                    <input type="password" id="userPasswordLogin" name="password" />
+                    <a href="#" data-role="button" id="loginUser" class="ui-btn ui-btn-b">Ingresar</a>
+                    <a href="#createUser" data-role="button" class="ui-btn ui-btn-b">Registrarme!</a>
                 </form>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -66,17 +73,17 @@
             </div>
             <div data-role="content">
                 <form id="createUserForm">
-                    <label for="userEmail">Email</label>
-                    <input type="email" id="userEmail" name="email" />
-                    <label for="firstname">Nombres</label>
-                    <input type="text" id="firstname" name="firstname" />
-                    <label for="lastname">Apellidos</label>
-                    <input type="text" id="lastname" name="lastname" />
-                    <label for="phone">Teléfono Móvil</label>
-                    <input type="tel" id="phone" pattern="[0-9]*" name="phone" />
-                    <label for="userPassword">password</label>
-                    <input type="password" id="userPassword" name="password" />
-                    <a href="#" data-role="button" id="saveUser">Registrar</a>
+                    <label for="userEmailCreateUser">Email</label>
+                    <input type="email" id="userEmailCreateUser" name="email" />
+                    <label for="firstnameCreateUser">Nombres</label>
+                    <input type="text" id="firstnameCreateUser" name="firstname" />
+                    <label for="lastnameCreateUser">Apellidos</label>
+                    <input type="text" id="lastnameCreateUser" name="lastname" />
+                    <label for="phoneCreateUser">Teléfono Móvil</label>
+                    <input type="tel" id="phoneCreateUser" pattern="[0-9]*" name="phone" />
+                    <label for="userPasswordCreateUser">password</label>
+                    <input type="password" id="userPasswordCreateUser" name="password" />
+                    <a href="#" data-role="button" id="saveUser" class="ui-btn ui-btn-b">Registrar</a>
                 </form>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -95,20 +102,17 @@
                 <h1>Perfil</h1>
             </div>
             <div data-role="content">
-                <ul data-role="listview" data-inset="true" id="dataInfo">
+                <h6>Datos Personales:</h6>
+                <ul data-role="listview" data-inset="false" id="dataInfo">
                 </ul>
-                <a href="#editProfile" data-role="button">Editar Perfil</a>
+                <a href="#editProfile" data-role="button" class="ui-btn ui-btn-b">Editar Perfil</a>
 
-                <a href="#home" data-role="button">Menú Principal</a>
+                <a href="#home" data-role="button" class="ui-btn ui-btn-b">Menú Principal</a>
+
+                <a href="#" data-role="button" id="closeSession" class="ui-btn ui-btn-b">Cerrar Sesión</a>
             </div>
             <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                  <ul>
-                    <li><a href="#coops" data-icon="grid" class="ui-btn-active">Cooperativas</a></li>
-                    <li><a href="#simulator" data-icon="star">Simulador</a></li>
-                    <li><a href="#markets" data-icon="gear">Marketplace</a></li>
-                  </ul>
-                </div><!-- /navbar -->
+                <h2>CooperApp</h2>
             </div><!-- /footer -->
         </div><!-- /profile -->
         <!-- ########################################################################## -->
@@ -119,23 +123,23 @@
         <div data-role="page" id="editProfile">
             <div data-role="header">
                 <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
-                <h1>Test App Avantel</h1>
+                <h1>Editar Perfil</h1>
             </div>
             <div data-role="content">
                 <form id="updateProfileForm">
-                    <label for="userEmail">Email</label>
-                    <input type="text" id="userEmail" name="email" />
-                    <label for="firstname">Nombres</label>
-                    <input type="text" id="firstname" name="firstname" />
-                    <label for="lastname">Apellidos</label>
-                    <input type="text" id="lastname" name="lastname" />
-                    <label for="phone">Teléfono Móvil</label>
-                    <input type="text" id="phone" name="phone" />
-                    <a href="#" data-role="button" id="updateProfile">Actualizar Información</a>
+                    <label for="userEmailEditProfile">Email</label>
+                    <input type="text" id="userEmailEditProfile" name="email" />
+                    <label for="firtsnameEditProfile">Nombres</label>
+                    <input type="text" id="firtsnameEditProfile" name="firstname" />
+                    <label for="lastnameEditProfile">Apellidos</label>
+                    <input type="text" id="lastnameEditProfile" name="lastname" />
+                    <label for="phoneEditProfile">Teléfono Móvil</label>
+                    <input type="tel" id="phoneEditProfile" pattern="[0-9]*" name="phone" />
+                    <a href="#" data-role="button" id="updateProfile" class="ui-btn ui-btn-b">Actualizar Información</a>
                 </form>
             </div>
             <div data-role="footer" data-position="fixed">
-                <h2>App</h2>
+                <h2>CooperApp</h2>
             </div>
         </div>
         <!-- ########################################################################## -->
@@ -146,7 +150,9 @@
         <!-- ########################### cooperative page ##################### -->
         <div data-role="page" id="coops">
             <div data-role="header">
+                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
                 <h1>Cooperativas</h1>
+                <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
             </div><!-- /header -->
             <div data-role="content">
                 <input type="text" id="txt-coopName" placeholder="Nombre de la Cooperativa">
@@ -158,7 +164,7 @@
                   <ul>
                     <li><a href="#coops" data-icon="grid" class="ui-btn-active">Cooperativas</a></li>
                     <li><a href="#simulator" data-icon="star">Simulador</a></li>
-                    <li><a href="#markets" data-icon="gear">Marketplace</a></li>
+                    <li><a href="#markets" data-icon="shop">Marketplace</a></li>
                   </ul>
                 </div><!-- /navbar -->
           </div><!-- /footer -->
@@ -171,7 +177,9 @@
         <!-- ########################### simulator page ##################### -->
         <div data-role="page" id="simulator">
             <div data-role="header">
+                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
                 <h1>Préstamos</h1>
+                <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
             </div><!-- /header -->
             <div data-role="content">
                     <input type="number" id="txt-amount" pattern="[0-9]*" placeholder="Digite el monto">
@@ -187,7 +195,7 @@
               <ul>
                 <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
                 <li><a href="#simulator" data-icon="star" class="ui-btn-active">Simulador</a></li>
-                <li><a href="#markets" data-icon="gear">Marketplace</a></li>
+                <li><a href="#markets" data-icon="shop">Marketplace</a></li>
               </ul>
             </div><!-- /navbar -->
           </div><!-- /footer -->
@@ -200,7 +208,9 @@
         <!-- ########################### markets page ##################### -->
         <div data-role="page" id="markets">
         <div data-role="header">
+            <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
             <h1>MarketPlace</h1>
+            <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
         </div><!-- /header -->
         <div data-role="content"><!-- /content -->
             <div data-role="collapsible" data-collapsed="false">
@@ -222,7 +232,7 @@
           <ul>
             <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
             <li><a href="#simulator" data-icon="star">Simulador</a></li>
-            <li><a href="#markets" data-icon="gear" class="ui-btn-active">Marketplace</a></li>
+            <li><a href="#markets" data-icon="shop" class="ui-btn-active">Marketplace</a></li>
           </ul>
         </div><!-- /navbar -->
       </div><!-- /footer -->

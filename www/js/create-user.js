@@ -3,11 +3,11 @@ $(document).on("pageinit", "#createUser", function(event) {
   return $("#saveUser").on("click", function() {
     var cookie, email, firstname, lastname, password, phone;
     console.log("Click on SaveUser");
-    email = $("#userEmail").val();
-    firstname = $("#firstname").val();
-    lastname = $("#lastname").val();
-    phone = $("#phone").val();
-    password = $("#userPassword").val();
+    email = $("#userEmailCreateUser").val();
+    firstname = $("#firstnameCreateUser").val();
+    lastname = $("#lastnameCreateUser").val();
+    phone = $("#phoneCreateUser").val();
+    password = $("#userPasswordCreateUser").val();
     cookie = '5852c0ef0719d1e0922e8e9806a4f5aa';
     if (email !== "" && firstname !== "" && lastname !== "" && phone !== "" && password !== "") {
       sessionStorage.setItem("cookie", cookie);

@@ -83,9 +83,16 @@ module.exports = (grunt) ->
     copy:
       main:
         files: [
-          expand:true
-          src: ['www/css/images/*']
-          dest: 'CooperApp/www/css/images/'
+          {
+            expand:false
+            src: 'www/css/images/**'
+            dest: 'CooperApp/'
+          }
+          {
+            expand:false
+            src : 'www/img/**'
+            dest: 'CooperApp/'
+          }
         ]
   # Load modules for gruntjs
   grunt.loadNpmTasks 'grunt-contrib-coffee'

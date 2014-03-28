@@ -1,24 +1,25 @@
 $(document).on "pageinit", "#editProfile", (event) ->
   console.log "Building DOM editing profile"
-  $("input#userEmail").val(localStorage.getItem("email")).attr "disabled", "disabled"
-  $("input#firstname").val localStorage.getItem("firstname")
-  $("input#lastname").val localStorage.getItem("lastname")
-  $("input#phone").val localStorage.getItem("phone")
+  $("input#userEmailEditProfile").val(localStorage.getItem("email")).attr "disabled", "disabled"
+  $("input#firtsnameEditProfile").val localStorage.getItem("firstname")
+  $("input#lastnameEditProfile").val localStorage.getItem("lastname")
+  $("input#phoneEditProfile").val localStorage.getItem("phone")
   
   $("#updateProfile").on "click", ->
-    if $("input#firstname").val() isnt "" and $("input#lastname").val() isnt "" and $("input#phone").val() isnt ""
+    if $("input#firtsnameEditProfile").val() isnt "" and $("input#lastnameEditProfile").val() isnt "" and $("input#phoneEditProfile").val() isnt ""
       update_data = {}
+      update_data.cookie = '5852c0ef0719d1e0922e8e9806a4f5aa'
       update_data.email = localStorage.getItem("email")
-      if localStorage.getItem("firstname") isnt $("input#firstname").val()
-        update_data.firstname = $("input#firstname").val()
+      if localStorage.getItem("firstname") isnt $("input#firtsnameEditProfile").val()
+        update_data.firstname = $("input#firtsnameEditProfile").val()
       else
         update_data.firstname = localStorage.getItem("firstname")
-      if localStorage.getItem("lastname") isnt $("input#lastname").val()
-        update_data.lastname = $("input#lastname").val()
+      if localStorage.getItem("lastname") isnt $("input#lastnameEditProfile").val()
+        update_data.lastname = $("input#lastnameEditProfile").val()
       else
         update_data.lastname = localStorage.getItem("lastname")
-      if localStorage.getItem("phone") isnt $("input#phone").val()
-        update_data.phone = $("input#phone").val()
+      if localStorage.getItem("phone") isnt $("input#phoneEditProfile").val()
+        update_data.phone = $("input#phoneEditProfile").val()
       else
         update_data.phone = localStorage.getItem("phone")
       console.log update_data
@@ -28,6 +29,17 @@ $(document).on "pageinit", "#editProfile", (event) ->
       localStorage.setItem "firstname", update_data.firstname
       localStorage.setItem "lastname", update_data.lastname
       localStorage.setItem "phone", update_data.phone
+
+      console.log localStorage.getItem('firstname') + ', ' + localStorage.getItem('lastname') + ', ' + localStorage.getItem('phone') + ', ' + sessionStorage.getItem('cookie')
+      ###
+      $(document).on 'pageinit', '#profile', (event) ->
+        console.log "Building Profile from DOM to createUser"
+        $('#dataInfo').remove '.info'
+        console.log $('#dataInfo').children().length
+        if $('#dataInfo').children().length is 0 or $('#dataInfo').children().length is 4
+          $('#dataInfo').append '<li><a href="#" class="info">' + localStorage.getItem(firstname) + '</a></li>' + '<li><a href="#" class="info">' + localStorage.getItem(lastname) + '</a></li>' + '<li><a href="#" class="info">' + localStorage.getItem(email) + '</a></li>' + '<li><a href="#" class="info">' + localStorage.getItem(phone) + '</a></li>'
+          $('#dataInfo').listview 'refresh'
+      ###
       $.mobile.changePage '#profile'
     else
       alert 'Hay campos en blanco'

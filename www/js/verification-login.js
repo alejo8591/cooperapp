@@ -3,11 +3,11 @@ $(document).on("pageinit", "#login", function(event) {
   return $("#loginUser").on("click", function() {
     var cookie, email, password;
     console.log("click on login");
-    email = $("#userEmail").val();
-    password = $("#userPassword").val();
+    email = $("#userEmailLogin").val();
+    password = $("#userPasswordLogin").val();
     if (email !== "" && password !== "" && email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
       cookie = '5852c0ef0719d1e0922e8e9806a4f5aa';
-      if (sessionStorage.getItem('cookie' !== cookie || sessionStorage.length === 0)) {
+      if (sessionStorage.getItem('cookie') !== cookie || sessionStorage.length === 0) {
         sessionStorage.setItem('cookie', cookie);
       }
       return $.mobile.changePage('#index');
