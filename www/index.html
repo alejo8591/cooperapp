@@ -10,65 +10,51 @@
     </head>
     <body>
 
-
-        <!-- ########################### home page ##################### -->
-        <div data-role="page" id="home">
-          <div data-role="header">
-            <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
-            <h1>CooperApp</h1>
-            <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
-          </div><!-- /header -->
-          <div data-role="content">
-            <br />
-            <h3>Bienvenido a</h3>
-            <br />
-            <br />
-            <img src="img/cooper_logo.png" alt="CooperApp" width="300" />
-          </div><!-- /content -->
-          <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-              <ul>
-                <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
-                <li><a href="#simulator" data-icon="star">Simulador</a></li>
-                <li><a href="#markets" data-icon="shop">Marketplace</a></li>
-              </ul>
-            </div><!-- /navbar -->
-          </div><!-- /footer -->
-        </div><!-- /page -->
-
-        <!-- ########################################################################## -->
-
-
-
-
         <!-- ########################### login page ##################### -->
-        <div data-role="page" id="login" data-theme="a">
-            <div data-role="header">
+        <div data-role="page" id="login">
+            <div data-role="header" data-theme="b">
                 <h1>Login</h1>
             </div>
             <div data-role="content">
+                <p align="center"><img src="img/cooper_logo.png" alt="logo" width="300px" height="150px"></p>
                 <form id="loginForm">
                     <label for="userEmailLogin">Email</label>
                     <input type="email" id="userEmailLogin" name="email" />
                     <label for="userPasswordLogin">Contraseña</label>
                     <input type="password" id="userPasswordLogin" name="password" />
-                    <a href="#" data-role="button" id="loginUser" class="ui-btn ui-btn-b">Ingresar</a>
-                    <a href="#createUser" data-role="button" class="ui-btn ui-btn-b">Registrarme!</a>
+                    <a href="#" data-role="button" id="loginUser" data-icon="carat-r">Ingresar</a>
+                    <p align="center"><a href="#recover">¿Has olvidado tu contraseña?</a></p>
+                    <a href="#createUser" data-role="button" data-icon="plus">Registrarme!</a>
                 </form>
             </div>
-            <div data-role="footer" data-position="fixed">
+            <div data-role="footer" data-position="fixed" data-theme="b">
                 <h2>CooperApp</h2>
             </div><!-- /footer -->
         </div><!-- /login -->
         <!-- ########################################################################## -->
 
-
-
+        <!-- ########################### recover page ##################### -->
+            <div data-role="page" id="recover">
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="carat-l" data-rel="back">Atras</a>
+                <h1>Recordar Contraseña</h1>
+            </div>
+            <div data-role="content">
+                <p align="center"><img src="img/cooper_logo.png" alt="logo" width="300px" height="150px"></p>
+                <label for="recoverEmail">Correo Electronico</label>
+                <input type="email" name="recoverEmail" id="recoverEmail">
+                <a href="#" data-role="button" data-icon="recycle">Reestablecer Contraseña</a>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <h1>CooperApp</h1>
+            </div>
+        </div>
+        <!-- ########################################################################## -->
 
         <!-- ########################### Create User page ##################### -->
         <div data-role="page" id="createUser">
-            <div data-role="header">
-                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="carat-l" data-rel="back" title="Atras">Atras</a>
                 <h1>Registrarme</h1>
             </div>
             <div data-role="content">
@@ -83,33 +69,90 @@
                     <input type="tel" id="phoneCreateUser" pattern="[0-9]*" name="phone" />
                     <label for="userPasswordCreateUser">password</label>
                     <input type="password" id="userPasswordCreateUser" name="password" />
-                    <a href="#" data-role="button" id="saveUser" class="ui-btn ui-btn-b">Registrar</a>
+                    <p align="center"><a href="#dialog-one" data-rel="dialog" data-transition="flip">Al registrarme acepto los terminos y condiciones de uso</a></p>
+                    <a href="#" data-role="button" id="saveUser" data-icon="user">Registrar</a>
                 </form>
             </div>
-            <div data-role="footer" data-position="fixed">
+            <div data-role="footer" data-position="fixed" data-theme="b">
                 <h2>CooperApp</h2>
             </div><!-- /footer -->
         </div><!-- /createUser -->
         <!-- ########################################################################## -->
+        <!-- ########################### Terms Dialog ##################### -->
+
+        <div data-role="page" id="dialog-one">
+            <div data-role="header" data-theme="b">
+                <h1>Terminos y Condiciones</h1>
+            </div>
+            <div data-role="content">
+                <p>
+                    My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there. Then I'm gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I'm talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?
+                </p>
+                <a href="#" data-role="button" data-rel="back" data-icon="check">Aceptar</a>
+            </div>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <h1>CooperApp</h1>
+            </div>
+        </div>
 
 
+
+        <!-- ########################################################################## -->
+
+        <!-- ########################### home page ##################### -->
+        <div data-role="page" id="home">
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="carat-l" data-rel="back" title="Atras">Atras</a>
+                <h1>CooperApp</h1>
+                <a href="#profile" data-icon="user" title="Atras">Perfil</a>
+            </div><!-- /header -->
+            <div data-role="content">
+                <br />
+                <h3 align="center">Bienvenido a</h3>
+                <br />
+                <br />
+                <p align="center"><img src="img/cooper_logo.png" alt="CooperApp" width="300" /></p>
+            </div><!-- /content -->
+          <div data-role="footer" data-position="fixed" data-theme="b">
+            <div data-role="navbar">
+              <ul>
+                <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
+                <li><a href="#simulator" data-icon="star">Simulador</a></li>
+                <li><a href="#markets" data-icon="shop">Marketplace</a></li>
+              </ul>
+            </div><!-- /navbar -->
+          </div><!-- /footer -->
+        </div><!-- /page -->
+
+        <!-- ########################################################################## -->
 
 
         <!-- ########################### Profile User page ##################### -->
         <div data-role="page" id="profile">
-            <div data-role="header">
-                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
+            <div data-role="header" data-theme="b">
                 <h1>Perfil</h1>
             </div>
             <div data-role="content">
-                <h6>Datos Personales:</h6>
+                <h4>Datos Personales:</h4>
                 <ul data-role="listview" data-inset="false" id="dataInfo">
-                </ul>
-                <a href="#editProfile" data-role="button" class="ui-btn ui-btn-b">Editar Perfil</a>
-                <a href="#home" data-role="button" class="ui-btn ui-btn-b">Menú Principal</a>
+                    <li><p>Nombre:</p></li>
+                    <li><p>Apellidos:</p></li>
+                    <li><p>Teléfono Movil:</p></li>
+                    <li><p>Password:</p></li>
+                </ul><br/>
+                <div data-role="controlgroup">
+                    <a href="#editProfile" data-role="button" data-icon="refresh">Actualizar Información</a>
+                    <a href="#home" data-role="button" data-icon="delete" id="deleteUser">Eliminar Perfil</a>
+                </div>
             </div>
-            <div data-role="footer" data-position="fixed">
-                <h2>CooperApp</h2>
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li><a href="#" data-icon="carat-l" data-rel="back">Atras</a></li>
+                        <li><a href="#home" data-icon="bars">Menu</a></li>
+                        <li><a href="#" data-icon="power">Salir</a></li>
+                    </ul>
+                </div>
             </div><!-- /footer -->
         </div><!-- /profile -->
         <!-- ########################################################################## -->
@@ -118,8 +161,7 @@
 
         <!-- ########################### Edit Profile User page ##################### -->
         <div data-role="page" id="editProfile">
-            <div data-role="header">
-                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
+            <div data-role="header" data-theme="b">
                 <h1>Editar Perfil</h1>
             </div>
             <div data-role="content">
@@ -132,17 +174,27 @@
                     <input type="text" id="lastnameEditProfile" name="lastname" />
                     <label for="phoneEditProfile">Teléfono Móvil</label>
                     <input type="tel" id="phoneEditProfile" pattern="[0-9]*" name="phone" />
-                    <a href="#" data-role="button" id="updateProfile" class="ui-btn ui-btn-b">Actualizar Información</a>
+                    <label for="passwordEditProfile">Contraseña</label>
+                    <input type="password" id="passwordEditProfile" name="password">
+                    <label for="confirmPasswordEditProfile">Confirmar Contraseña</label>
+                    <input type="password" id="confirmPasswordEditProfile">
+                    <div data-role="navbar" data-iconpos="bottom">
+                        <ul>
+                            <li><a href="#" data-role="button" id="updateProfile" data-icon="check">Actualizar</a></li>
+                            <li><a href="#" data-icon="delete">Cancelar</a></li>
+                        </ul>
+                    </div>
                 </form>
             </div>
-            <div data-role="footer" data-position="fixed">
-                <div data-role="navbar">
-                  <ul>
-                    <li><a href="#" data-icon="grid" class="ui-btn-active" id="deleteUser">Eliminar</a></li>
-                    <li><a href="#" data-icon="star" id="logout">Cerrar Sesión</a></li>
-                  </ul>
-                </div><!-- /navbar -->
-          </div><!-- /footer -->
+            <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="bottom">
+                    <ul>
+                        <li><a href="#" data-icon="carat-l" data-rel="back">Volver</a></li>
+                        <li><a href="#home" data-icon="bars">Menu</a></li>
+                        <li><a href="#" data-icon="power" id="logout">Salir</a></li>
+                    </ul>
+                </div>
+            </div>
         </div><!-- /edit profile -->
         <!-- ########################################################################## -->
 
@@ -151,19 +203,19 @@
 
         <!-- ########################### cooperative page ##################### -->
         <div data-role="page" id="coops">
-            <div data-role="header">
-                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="carat-l" data-rel="back" title="Atras">Atras</a>
                 <h1>Cooperativas</h1>
-                <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
+                <a href="#profile" data-icon="user" title="Atras">Perfil</a>
             </div><!-- /header -->
             <div data-role="content">
                 <label for="txt-coopName">Nombre de la Cooperativa</label>
-                <input type="text" id="txt-coopName" placeholder="Nombre de la Cooperativa">
+                <input type="text" id="txt-coopName">
                 <label for="txt-coopName">Dirección de Cooperativa</label>
-                <input type="text" id="txt-coopAddress" placeholder="Dirección de Cooperativa">
+                <input type="text" id="txt-coopAddress">
                 <div id="map" style="position: absolute; bottom: 0%; width: 80%; left:50%; margin-left:-40%; height: 60%;"></div>
             </div>
-            <div data-role="footer" data-position="fixed">
+            <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar">
                   <ul>
                     <li><a href="#coops" data-icon="grid" class="ui-btn-active">Cooperativas</a></li>
@@ -180,24 +232,27 @@
 
         <!-- ########################### simulator page ##################### -->
         <div data-role="page" id="simulator">
-            <div data-role="header">
-                <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
+            <div data-role="header" data-theme="b">
+                <a href="#" data-icon="carat-l" data-rel="back" title="Atras">Atras</a>
                 <h1>Préstamos</h1>
-                <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
+                <a href="#profile" data-icon="user" title="Atras">Perfil</a>
             </div><!-- /header -->
             <div data-role="content">
                     <label for="txt-coopName">Digite el monto</label>
-                    <input type="number" id="txt-amount" pattern="[0-9]*" placeholder="Digite el monto">
+                    <input type="number" id="txt-amount" pattern="[0-9]*">
                     <label for="txt-coopName">Digite tasa de interés (x.x%)</label>
-                    <input type="number" id="txt-interestRate" placeholder="Digite tasa de interés (x.x%)">
+                    <input type="number" id="txt-interestRate">
                     <label for="txt-coopName">Digite N° de cuotas pactadas</label>
-                    <input type="number" id="txt-feeNumber" pattern="[0-9]*" placeholder="Digite N° de cuotas pactadas">
-                    <button id="btnCalculateCredit" class="ui-btn ui-btn-b">Calcular</button>
+                    <input type="number" id="txt-feeNumber" pattern="[0-9]*">
+                    <button id="btnCalculateCredit" data-icon="check">Calcular</button>
                     <div id="resultsCalculateCredit">
+                        <label id="txt-feeToPay">Cuota a Pagar:</label>
+                        <label id="txt-totalPay">Valor Total Pagado:</label>
+                        <label id="txt-totalInterest">Total Interés Pagado:</label>
                     </div>
-                    <button class="ui-btn ui-btn-b" id="btnResetSimulatorFields">Nuevo</button>
+                    <button id="btnResetSimulatorFields" data-icon="plus"  onclick="clearData()">Nuevo</button>
             </div>  
-            <div data-role="footer" data-position="fixed">
+            <div data-role="footer" data-position="fixed" data-theme="b">
             <div data-role="navbar">
               <ul>
                 <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
@@ -214,10 +269,10 @@
 
         <!-- ########################### markets page ##################### -->
         <div data-role="page" id="markets">
-        <div data-role="header">
-            <a href="#" data-icon="back" data-rel="back" title="Atras">Atras</a>
+        <div data-role="header" data-theme="b">
+            <a href="#" data-icon="carat-l" data-rel="back" title="Atras">Atras</a>
             <h1>MarketPlace</h1>
-            <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
+            <a href="#profile" data-icon="user" title="Atras">Perfil</a>
         </div><!-- /header -->
         <div data-role="content"><!-- /content -->
             <div data-role="collapsible" data-collapsed="false">
@@ -234,7 +289,7 @@
                 </ul>
             </div>
         </div>
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-theme="b">
         <div data-role="navbar">
           <ul>
             <li><a href="#coops" data-icon="grid">Cooperativas</a></li>
