@@ -133,3 +133,8 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/al
 + **¡Allow For!** Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
 
 
+## 6. Implementation for the developer
+
+After installing all necessary packages and carrying out the necessary configuration must submit documentation to the initially built with `groc`, `index.html` file that feeds both the www files source code and other libraries. 
+
+All documentation must be supplied through Markdown and general settings in the `index.md`
