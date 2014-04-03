@@ -79,7 +79,7 @@ After installing the packages and software point 1. proceed to install packages 
 #### 2.3 Install and initialize project in Cordova (PhoneGap)
 
 ##### 2.3.1 Create Project
-`$ cordova create cooperapp com.mobile.cooperapp "CooperApp" `
+`$ cordova create CooperApp com.mobile.cooperapp "CooperApp" `
 
 #### 2.4 Add Platform for initial Tests
 `$ cordova platform add firefoxos `
