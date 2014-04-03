@@ -21,16 +21,139 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 1,
-            "title": "Documentation for CooperApp",
-            "slug": "documentation-for-cooperapp",
+            "title": "Documentation Develop for CooperApp",
+            "slug": "documentation-develop-for-cooperapp",
             "isFileHeader": true
           },
-          "depth": 1
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "1. Clone repository from Github",
+                "slug": "1-clone-repository-from-github"
+              },
+              "depth": 4
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "2. Change branch in the local repository",
+                "slug": "2-change-branch-in-the-local-repository"
+              },
+              "depth": 4
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "3. Install or upgrade packages for local NodeJS",
+                "slug": "3-install-or-upgrade-packages-for-local-nodejs"
+              },
+              "depth": 4
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "4. Scheduled Tasks and built GruntJS",
+                "slug": "4-scheduled-tasks-and-built-gruntjs"
+              },
+              "depth": 4
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "5. Main Project Files",
+                "slug": "5-main-project-files"
+              },
+              "depth": 4,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 5,
+                    "title": "5.2 Developing specific folders are:",
+                    "slug": "52-developing-specific-folders-are"
+                  },
+                  "depth": 5
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 5,
+                    "title": "5.2 Developing specific folders are:",
+                    "slug": "52-developing-specific-folders-are"
+                  },
+                  "depth": 5
+                }
+              ]
+            }
+          ]
         },
-        "title": "Documentation for CooperApp"
+        "title": "Documentation Develop for CooperApp"
       },
       "depth": 1,
-      "outline": []
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 4,
+            "title": "1. Clone repository from Github",
+            "slug": "1-clone-repository-from-github"
+          },
+          "depth": 4
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 4,
+            "title": "2. Change branch in the local repository",
+            "slug": "2-change-branch-in-the-local-repository"
+          },
+          "depth": 4
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 4,
+            "title": "3. Install or upgrade packages for local NodeJS",
+            "slug": "3-install-or-upgrade-packages-for-local-nodejs"
+          },
+          "depth": 4
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 4,
+            "title": "4. Scheduled Tasks and built GruntJS",
+            "slug": "4-scheduled-tasks-and-built-gruntjs"
+          },
+          "depth": 4
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 4,
+            "title": "5. Main Project Files",
+            "slug": "5-main-project-files"
+          },
+          "depth": 4,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 5,
+                "title": "5.2 Developing specific folders are:",
+                "slug": "52-developing-specific-folders-are"
+              },
+              "depth": 5
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 5,
+                "title": "5.2 Developing specific folders are:",
+                "slug": "52-developing-specific-folders-are"
+              },
+              "depth": 5
+            }
+          ]
+        }
+      ]
     }, {
       "type": "folder",
       "data": {
