@@ -36,6 +36,7 @@ Runs in REPL (command line of NodeJS):
 The execution of the task and the task configuration is done with the following line in the file Gruntfile.js:
 
 ```coffee-script
+# Task for test files
 grunt.registerTask 'test', ['coffeelint', 'htmlhint']
 ```
 
@@ -204,4 +205,46 @@ module.exports = (grunt) ->
       ]
       options:
         "out": "doc/"
+```
+
+#### 5. Main Project Files
+
+The development database files are in the root project folder called "www", which has a structure as follows:
+
+```
+www
+|-- coffee
+|   |-- calculator.coffee
+|   |-- create-user.coffee
+|   |-- edit-profile.coffee
+|   |-- geolocation.coffee
+|   |-- index.coffee
+|   |-- login.coffee
+|   |-- profile.coffee
+|   `-- verification-login.coffee
+|-- css
+    |-- images
+    |-- index.css
+|   |-- jquery.mobile-1.4.2.min.css
+|   |-- jquery.mobile.external-png-1.4.2.css
+|   |-- jquery.mobile.icons-1.4.2.min.css
+|   |-- jquery.mobile.inline-png-1.4.2.min.css
+|   |-- jquery.mobile.inline-svg-1.4.2.min.css
+|   |-- jquery.mobile.structure-1.4.2.min.css
+|   `-- jquery.mobile.theme-1.4.2.min.css
+|-- img
+|   |-- cooper_logo.png
+|   `-- logo.png
+|-- index.html
+`-- js
+    |-- calculator.js
+    |-- create-user.js
+    |-- edit-profile.js
+    |-- geolocation.js
+    |-- index.js
+    |-- jquery-1.11.0.js
+    |-- jquery.mobile-1.4.2.js
+    |-- login.js
+    |-- profile.js
+    `-- verification-login.js
 ```
