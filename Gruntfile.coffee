@@ -95,14 +95,14 @@ module.exports = (grunt) ->
           }
         ]
   # Load modules for gruntjs
+  grunt.loadNpmTasks 'grunt-coffeelint'
+  grunt.loadNpmTasks 'grunt-htmlhint'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-htmlmin'
-  grunt.loadNpmTasks 'grunt-htmlhint'
-  grunt.loadNpmTasks 'grunt-groc'
-  grunt.loadNpmTasks 'grunt-coffeelint'
-  grunt.loadNpmTasks 'grunt-contrib-cssmin'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-groc'
   # Load all Task
   # Task for test files
   grunt.registerTask 'test', ['coffeelint', 'htmlhint']
