@@ -4,13 +4,22 @@ $(document).on "pageinit", "#login", (event) ->
     console.log "click on login"
     email = $("#userEmailLogin").val()
     password = $("#userPasswordLogin").val()
+    cookie = '5852c0ef0719d1e0922e8e9806a4f5aa'
 
-    if email isnt "" and password isnt "" and email is localStorage.getItem('email') and password is localStorage.getItem('password')
-      cookie = '5852c0ef0719d1e0922e8e9806a4f5aa'
+    sessionStorage.setItem 'cookie', cookie
+
+    console.log "values localStorage: " + localStorage.getItem('email') + ', ' + localStorage.getItem('password') + ', ' + sessionStorage.getItem('cookie')
+
+    console.log "values intro: " + email + ', ' +password
+
+
+    if email isnt "" and password isnt "" and email is localStorage.getItem('email') and password is localStorage.getItem('password') and sessionStorage.length > 0
 
       if sessionStorage.getItem('cookie') isnt cookie or sessionStorage.length is 0
         sessionStorage.setItem 'cookie', cookie
-      $.mobile.changePage '#index'
+        $.mobile.changePage '#home'
+      else
+        $.mobile.changePage '#home'
     else
       $("#loginForm").reset()
       $.mobile.changePage '#login'

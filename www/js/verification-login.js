@@ -5,12 +5,17 @@ $(document).on("pageinit", "#login", function(event) {
     console.log("click on login");
     email = $("#userEmailLogin").val();
     password = $("#userPasswordLogin").val();
-    if (email !== "" && password !== "" && email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
-      cookie = '5852c0ef0719d1e0922e8e9806a4f5aa';
+    cookie = '5852c0ef0719d1e0922e8e9806a4f5aa';
+    sessionStorage.setItem('cookie', cookie);
+    console.log("values localStorage: " + localStorage.getItem('email') + ', ' + localStorage.getItem('password') + ', ' + sessionStorage.getItem('cookie'));
+    console.log("values intro: " + email + ', ' + password);
+    if (email !== "" && password !== "" && email === localStorage.getItem('email') && password === localStorage.getItem('password') && sessionStorage.length > 0) {
       if (sessionStorage.getItem('cookie') !== cookie || sessionStorage.length === 0) {
         sessionStorage.setItem('cookie', cookie);
+        return $.mobile.changePage('#home');
+      } else {
+        return $.mobile.changePage('#home');
       }
-      return $.mobile.changePage('#index');
     } else {
       $("#loginForm").reset();
       return $.mobile.changePage('#login');

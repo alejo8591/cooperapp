@@ -4,7 +4,7 @@ $(document).on("pageinit", "#editProfile", function(event) {
   $("input#firtsnameEditProfile").val(localStorage.getItem("firstname"));
   $("input#lastnameEditProfile").val(localStorage.getItem("lastname"));
   $("input#phoneEditProfile").val(localStorage.getItem("phone"));
-  return $("#updateProfile").on("click", function() {
+  $("#updateProfile").on("click", function() {
     var update_data;
     if ($("input#firtsnameEditProfile").val() !== "" && $("input#lastnameEditProfile").val() !== "" && $("input#phoneEditProfile").val() !== "") {
       update_data = {};
@@ -45,6 +45,34 @@ $(document).on("pageinit", "#editProfile", function(event) {
       return $.mobile.changePage('#profile');
     } else {
       return alert('Hay campos en blanco');
+    }
+  });
+  $("#deleteUser").on("click", function() {
+    console.log("click on delete");
+    sessionStorage.removeItem("cookie");
+    localStorage.removeItem("email");
+    localStorage.removeItem("firstname");
+    localStorage.removeItem("lastname");
+    localStorage.removeItem("phone");
+    $('#loginForm').reset();
+    $('#createUserForm').reset();
+    if (sessionStorage.length === 0) {
+      console.log("sessionStorage clean");
+      return $.mobile.changePage("#login");
+    } else {
+      return $.mobile.changePage("#home");
+    }
+  });
+  return $("#logout").on("click", function() {
+    console.log("click on logout");
+    sessionStorage.removeItem("cookie");
+    $('#loginForm').reset();
+    $('#createUserForm').reset();
+    if (sessionStorage.length === 0) {
+      console.log("sessionStorage clean");
+      return $.mobile.changePage("#login");
+    } else {
+      return $.mobile.changePage("#home");
     }
 
     /*

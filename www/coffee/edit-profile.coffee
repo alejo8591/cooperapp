@@ -43,6 +43,34 @@ $(document).on "pageinit", "#editProfile", (event) ->
       $.mobile.changePage '#profile'
     else
       alert 'Hay campos en blanco'
+
+  $("#deleteUser").on "click", ->
+    console.log "click on delete"
+    sessionStorage.removeItem "cookie"
+    localStorage.removeItem "email"
+    localStorage.removeItem "firstname"
+    localStorage.removeItem "lastname"
+    localStorage.removeItem "phone"
+    $('#loginForm').reset()
+    $('#createUserForm').reset()
+    if sessionStorage.length is 0
+      # cargando login por no estar logeado
+      console.log "sessionStorage clean"
+      $.mobile.changePage "#login"
+    else
+      $.mobile.changePage "#home"
+
+  $("#logout").on "click", ->
+    console.log "click on logout"
+    sessionStorage.removeItem "cookie"
+    $('#loginForm').reset()
+    $('#createUserForm').reset()
+    if sessionStorage.length is 0
+      # cargando login por no estar logeado
+      console.log "sessionStorage clean"
+      $.mobile.changePage "#login"
+    else
+      $.mobile.changePage "#home"
     
     #
     #			type (default: 'GET')

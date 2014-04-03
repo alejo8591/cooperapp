@@ -106,10 +106,7 @@
                 <ul data-role="listview" data-inset="false" id="dataInfo">
                 </ul>
                 <a href="#editProfile" data-role="button" class="ui-btn ui-btn-b">Editar Perfil</a>
-
                 <a href="#home" data-role="button" class="ui-btn ui-btn-b">Menú Principal</a>
-
-                <a href="#" data-role="button" id="closeSession" class="ui-btn ui-btn-b">Cerrar Sesión</a>
             </div>
             <div data-role="footer" data-position="fixed">
                 <h2>CooperApp</h2>
@@ -139,9 +136,14 @@
                 </form>
             </div>
             <div data-role="footer" data-position="fixed">
-                <h2>CooperApp</h2>
-            </div>
-        </div>
+                <div data-role="navbar">
+                  <ul>
+                    <li><a href="#" data-icon="grid" class="ui-btn-active" id="deleteUser">Eliminar</a></li>
+                    <li><a href="#" data-icon="star" id="logout">Cerrar Sesión</a></li>
+                  </ul>
+                </div><!-- /navbar -->
+          </div><!-- /footer -->
+        </div><!-- /edit profile -->
         <!-- ########################################################################## -->
 
 
@@ -155,7 +157,9 @@
                 <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
             </div><!-- /header -->
             <div data-role="content">
+                <label for="txt-coopName">Nombre de la Cooperativa</label>
                 <input type="text" id="txt-coopName" placeholder="Nombre de la Cooperativa">
+                <label for="txt-coopName">Dirección de Cooperativa</label>
                 <input type="text" id="txt-coopAddress" placeholder="Dirección de Cooperativa">
                 <div id="map" style="position: absolute; bottom: 0%; width: 80%; left:50%; margin-left:-40%; height: 60%;"></div>
             </div>
@@ -182,8 +186,11 @@
                 <a href="#profile" data-icon="gear" title="Atras">Perfil</a>
             </div><!-- /header -->
             <div data-role="content">
+                    <label for="txt-coopName">Digite el monto</label>
                     <input type="number" id="txt-amount" pattern="[0-9]*" placeholder="Digite el monto">
+                    <label for="txt-coopName">Digite tasa de interés (x.x%)</label>
                     <input type="number" id="txt-interestRate" placeholder="Digite tasa de interés (x.x%)">
+                    <label for="txt-coopName">Digite N° de cuotas pactadas</label>
                     <input type="number" id="txt-feeNumber" pattern="[0-9]*" placeholder="Digite N° de cuotas pactadas">
                     <button id="btnCalculateCredit" class="ui-btn ui-btn-b">Calcular</button>
                     <div id="resultsCalculateCredit">

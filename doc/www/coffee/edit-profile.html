@@ -39,6 +39,30 @@
     $('#dataInfo').listview 'refresh'</p></div></div><div class="code"><div class="wrapper">      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&#39;#profile&#39;</span>
     <span class="k">else</span>
       <span class="nx">alert</span> <span class="s">&#39;Hay campos en blanco&#39;</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;</span><span class="err">#</span><span class="s">deleteUser&quot;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&quot;click&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;click on delete&quot;</span>
+    <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;cookie&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;email&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;firstname&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;lastname&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;phone&quot;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#loginForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#createUserForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="mi">0</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>cargando login por no estar logeado</p></div></div><div class="code"><div class="wrapper">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;sessionStorage clean&quot;</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">login&quot;</span>
+    <span class="k">else</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">home&quot;</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;</span><span class="err">#</span><span class="s">logout&quot;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&quot;click&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;click on logout&quot;</span>
+    <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;cookie&quot;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#loginForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#createUserForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="mi">0</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>cargando login por no estar logeado</p></div></div><div class="code"><div class="wrapper">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;sessionStorage clean&quot;</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">login&quot;</span>
+    <span class="k">else</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">home&quot;</span>
     </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>    type (default: 'GET')
     Type: String
     The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods,
