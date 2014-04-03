@@ -209,7 +209,7 @@ module.exports = (grunt) ->
 
 #### 5. Main Project Files
 
-The development database files are in the root project folder called "www", which has a structure as follows:
+##### 5.1 The development database files are in the root project folder called `www`, which has a structure as follows:
 
 ```
 www
@@ -223,8 +223,8 @@ www
 |   |-- profile.coffee
 |   `-- verification-login.coffee
 |-- css
-    |-- images
-    |-- index.css
+|   |-- images
+|   |-- index.css
 |   |-- jquery.mobile-1.4.2.min.css
 |   |-- jquery.mobile.external-png-1.4.2.css
 |   |-- jquery.mobile.icons-1.4.2.min.css
@@ -236,6 +236,53 @@ www
 |   |-- cooper_logo.png
 |   `-- logo.png
 |-- index.html
+`-- js
+    |-- calculator.js
+    |-- create-user.js
+    |-- edit-profile.js
+    |-- geolocation.js
+    |-- index.js
+    |-- jquery-1.11.0.js
+    |-- jquery.mobile-1.4.2.js
+    |-- login.js
+    |-- profile.js
+    `-- verification-login.js
+```
+
+##### 5.2 Developing specific folders are:
+
+The following files are those that are constantly evolving and new files were added:
+
+```
+www
+|-- coffee
+|   |-- calculator.coffee
+|   |-- create-user.coffee
+|   |-- edit-profile.coffee
+|   |-- geolocation.coffee
+|   |-- index.coffee
+|   |-- login.coffee
+|   |-- profile.coffee
+|   `-- verification-login.coffee
+|-- css
+|   |-- images
+|   |-- index.css
+|   |-- jquery.mobile-1.4.2.min.css
+|   |-- jquery.mobile.external-png-1.4.2.css
+|   |-- jquery.mobile.icons-1.4.2.min.css
+|   |-- jquery.mobile.inline-png-1.4.2.min.css
+|   |-- jquery.mobile.inline-svg-1.4.2.min.css
+|   |-- jquery.mobile.structure-1.4.2.min.css
+|   `-- jquery.mobile.theme-1.4.2.min.css
+`-- index.html
+```
+
+##### 5.2 Developing specific folders are:
+
+Files that are compiled with CoffeScript for the `www` folder:
+```
+www
+| 
 `-- js
     |-- calculator.js
     |-- create-user.js
