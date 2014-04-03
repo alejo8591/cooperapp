@@ -171,23 +171,23 @@ module.exports = (grunt) ->
         ]
 ```
 
-##### 4.3 The third task called `doc` is reviewing the syntax and encoded files written in CoffeeScript:
+##### 4.3 The third task called `doc` is responsible for compiling the necessary task to generate code documentation in general:
 
 Runs in REPL (command line of NodeJS):
 
-`grunt test`
+`grunt doc`
 
 The execution of the task and the task configuration is done with the following line in the file Gruntfile.js:
 
 ```coffee-script
-grunt.registerTask 'test', ['coffeelint', 'htmlhint']
+# Task for Documentation Code
+grunt.registerTask 'doc', ['groc']
 ```
 
 The packages must be installed to perform this task are:
 
 ``` coffee-script
-grunt.loadNpmTasks 'grunt-coffeelint'
-grunt.loadNpmTasks 'grunt-htmlhint'
+grunt.loadNpmTasks 'grunt-groc'
 ```
 
 The CoffeeScript code that sets this task is:
@@ -196,28 +196,12 @@ The CoffeeScript code that sets this task is:
 module.exports = (grunt) ->
   # Configure Tasks
   grunt.initConfig
-    pkg: grunt.file.readJSON('package.json')
-    # Test CoffeeLint
-    coffeelint:
-      app: ['www/coffee/*.coffee']
+    # Generate Documentation with Docco and Groc
+    groc:
+      coffeescript: [
+      	"www/coffee/*.coffee"
+      	"index.md"
+      ]
       options:
-        'no_trailing_whitespace':
-          'level': 'error'
-        'colon_assignment_spacing':
-          'level': 'warn'
-        'no_tabs':
-          'level': 'error'
-        'no_implicit_parens':
-          'level': 'ignore'
-        'no_empty_param_list':
-          'level': 'error'
-        'max_line_length':
-          'level': 'ignore'
-   # Validate html files with htmlhint.
-   htmlhint:
-     html1:
-       options:
-         'tag-pair': true
-       src:
-         ['www/*.html']
+        "out": "doc/"
 ```
