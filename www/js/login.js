@@ -13,6 +13,6 @@ $(document).on("pageinit", "#home", function() {
     $.mobile.changePage("#home");
   }
   return $("#lookCookie").on("click", function() {
-    return $("#setCookie").append("<p>" + sessionStorage.getItem("cookie") + "</p>");
+  return $("#setCookie").append("<p>" + sessionStorage.getItem("cookie") + "</p>");
   });
 });
