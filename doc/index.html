@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="index.md"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">index.md</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h1 id="documentation-develop-for-cooperapp">Documentation Develop for CooperApp</h1>
+
+<h4 id="1-clone-repository-from-github">1. Clone repository from Github</h4>
+
+<p><code>git clone git@github.com:alejo8591/cooperapp.git</code></p>
+
+<h4 id="2-change-branch-in-the-local-repository">2. Change branch in the local repository</h4>
+
+<p>Create local branch <code>develop</code></p>
+
+<p><code>git checkout -b develop</code></p>
+
+<p>And then update the repository with changes relating to this branch</p>
+
+<p><code>git pull origin develop</code></p>
+
+<h4 id="3-install-or-upgrade-packages-for-local-nodejs">3. Install or upgrade packages for local NodeJS</h4>
+
+<p>Install the packages that are in the <code>package.json</code></p>
+
+<p><code>npm install</code></p>
+
+<h4 id="4-scheduled-tasks-and-built-gruntjs">4. Scheduled Tasks and built GruntJS</h4>
+
+<p>In the configuration file for Gruntfile.coffee three tasks are tasks to perform explicit stages of development:</p>
+
+<h5 id="41thefirsttaskcalledtestisreviewingthesyntaxandencodedfileswrittenincoffeescript">4.1 The first task called <code>test</code> is reviewing the syntax and encoded files written in CoffeeScript:</h5>
+
+<p>Runs in REPL (command line of NodeJS):</p>
+
+<p><code>grunt test</code></p>
+
+<p>The execution of the task and the task configuration is done with the following line in the file Gruntfile.js:</p>
+
+<pre><code class="coffee-script"># Task for test files
+grunt.registerTask 'test', ['coffeelint', 'htmlhint']
+</code></pre>
+
+<p>The packages must be installed to perform this task are:</p>
+
+<pre><code class=" coffee-script">grunt.loadNpmTasks 'grunt-coffeelint'
+grunt.loadNpmTasks 'grunt-htmlhint'
+</code></pre>
+
+<p>The CoffeeScript code that sets this task is:</p>
+
+<pre><code class=" coffee-script">module.exports = (grunt) -&gt;
+  # Configure Tasks
+  grunt.initConfig
+    pkg: grunt.file.readJSON('package.json')
+    # Test CoffeeLint
+    coffeelint:
+      app: ['www/coffee/*.coffee']
+      options:
+        'no_trailing_whitespace':
+          'level': 'error'
+        'colon_assignment_spacing':
+          'level': 'warn'
+        'no_tabs':
+          'level': 'error'
+        'no_implicit_parens':
+          'level': 'ignore'
+        'no_empty_param_list':
+          'level': 'error'
+        'max_line_length':
+          'level': 'ignore'
+   # Validate html files with htmlhint.
+   htmlhint:
+     html1:
+       options:
+         'tag-pair': true
+       src:
+         ['www/*.html']
+</code></pre>
+
+<h5 id="42thesecondtaskcalledcompileistocompileanduploadallfilestotheprojectcalledcooperapp">4.2 The second task called <code>compile</code> is to compile and upload all files to the project called <code>CooperApp</code>:</h5>
+
+<p>Runs in REPL (command line of NodeJS):</p>
+
+<p><code>grunt compile</code></p>
+
+<p>The execution of the task and the task configuration is done with the following line in the file Gruntfile.js:</p>
+
+<pre><code class="coffee-script"># Task for compile files
+  grunt.registerTask 'compile', ['coffee', 'cssmin', 'uglify', 'htmlmin', 'copy']
+</code></pre>
+
+<p>The packages must be installed to perform this task are:</p>
+
+<pre><code class=" coffee-script">grunt.loadNpmTasks 'grunt-contrib-coffee'
+grunt.loadNpmTasks 'grunt-contrib-cssmin'
+grunt.loadNpmTasks 'grunt-contrib-uglify'
+grunt.loadNpmTasks 'grunt-contrib-htmlmin'
+grunt.loadNpmTasks 'grunt-contrib-copy'
+</code></pre>
+
+<p>The CoffeeScript code that sets this task is:</p>
+
+<pre><code class=" coffee-script">module.exports = (grunt) -&gt;
+  # Configure Tasks
+  grunt.initConfig
+    pkg: grunt.file.readJSON('package.json')
+    # CoffeeScript files
+    coffee:
+      compileBare:
+        options:
+          bare: true
+        files:
+          'www/js/index.js':'www/coffee/index.coffee'
+          'www/js/calculator.js': 'www/coffee/calculator.coffee'
+          'www/js/geolocation.js': 'www/coffee/geolocation.coffee'
+          'www/js/login.js': 'www/coffee/login.coffee'
+          'www/js/verification-login.js': 'www/coffee/verification-login.coffee'
+          'www/js/create-user.js': 'www/coffee/create-user.coffee'
+          'www/js/profile.js': 'www/coffee/profile.coffee'
+          'www/js/edit-profile.js': 'www/coffee/edit-profile.coffee'
+    #CSS minified Files
+    cssmin:
+      combine:
+        files: 
+          'CooperApp/www/css/cooperapp.min.css' : ['www/css/*.css']
+    # uglify for JS files
+    uglify:
+      options:
+          # infor in package.json
+        banner: '/*! Development or minified for &lt;%= pkg.author %&gt; of &lt;%= pkg.company %&gt; [dat] co  */\n/*! &lt;%= pkg.name %&gt;: Version &lt;%= pkg.version %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'
+      my_target:
+        files:
+          'CooperApp/www/js/index.js': [
+            'www/js/index.js'
+            'www/js/login.js'
+            'www/js/verification-login.js'
+            'www/js/create-user.js'
+            'www/js/profile.js'
+            'www/js/edit-profile.js'
+            'www/js/calculator.js'
+            'www/js/geolocation.js'
+          ]
+          'CooperApp/www/js/jquery-1.11.0.min.js': 'www/js/jquery-1.11.0.js'
+          'CooperApp/www/js/jquery.mobile-1.4.2.min.js': 'www/js/jquery.mobile-1.4.2.js'
+    # minified for HTML files
+    htmlmin:
+      dist:
+        options:
+          removeComments: true
+          collapseWhitespace: true
+        files:
+          'CooperApp/www/index.html': 'www/index.html'
+    # Copy images folder
+    copy:
+      main:
+        files: [
+          {
+            expand:false
+            src: 'www/css/images/**'
+            dest: 'CooperApp/'
+          }
+          {
+            expand:false
+            src : 'www/img/**'
+            dest: 'CooperApp/'
+          }
+        ]
+</code></pre>
+
+<h5 id="43thethirdtaskcalleddocisresponsibleforcompilingthenecessarytasktogeneratecodedocumentationingeneral">4.3 The third task called <code>doc</code> is responsible for compiling the necessary task to generate code documentation in general:</h5>
+
+<p>Runs in REPL (command line of NodeJS):</p>
+
+<p><code>grunt doc</code></p>
+
+<p>The execution of the task and the task configuration is done with the following line in the file Gruntfile.js:</p>
+
+<pre><code class="coffee-script"># Task for Documentation Code
+grunt.registerTask 'doc', ['groc']
+</code></pre>
+
+<p>The packages must be installed to perform this task are:</p>
+
+<pre><code class=" coffee-script">grunt.loadNpmTasks 'grunt-groc'
+</code></pre>
+
+<p>The CoffeeScript code that sets this task is:</p>
+
+<pre><code class=" coffee-script">module.exports = (grunt) -&gt;
+  # Configure Tasks
+  grunt.initConfig
+    # Generate Documentation with Docco and Groc
+    groc:
+      coffeescript: [
+          "www/coffee/*.coffee"
+          "index.md"
+      ]
+      options:
+        "out": "doc/"
+</code></pre>
+
+<h4 id="5-main-project-files">5. Main Project Files</h4>
+
+<h5 id="51thedevelopmentdatabasefilesareintherootprojectfoldercalledwwwwhichhasastructureasfollows">5.1 The development database files are in the root project folder called <code>www</code>, which has a structure as follows:</h5>
+
+<pre><code>www
+|-- coffee
+|   |-- calculator.coffee
+|   |-- create-user.coffee
+|   |-- edit-profile.coffee
+|   |-- geolocation.coffee
+|   |-- index.coffee
+|   |-- login.coffee
+|   |-- profile.coffee
+|   `-- verification-login.coffee
+|-- css
+|   |-- images
+|   |-- index.css
+|   |-- jquery.mobile-1.4.2.min.css
+|   |-- jquery.mobile.external-png-1.4.2.css
+|   |-- jquery.mobile.icons-1.4.2.min.css
+|   |-- jquery.mobile.inline-png-1.4.2.min.css
+|   |-- jquery.mobile.inline-svg-1.4.2.min.css
+|   |-- jquery.mobile.structure-1.4.2.min.css
+|   `-- jquery.mobile.theme-1.4.2.min.css
+|-- img
+|   |-- cooper_logo.png
+|   `-- logo.png
+|-- index.html
+`-- js
+    |-- calculator.js
+    |-- create-user.js
+    |-- edit-profile.js
+    |-- geolocation.js
+    |-- index.js
+    |-- jquery-1.11.0.js
+    |-- jquery.mobile-1.4.2.js
+    |-- login.js
+    |-- profile.js
+    `-- verification-login.js
+</code></pre>
+
+<h5 id="52-developing-specific-folders-are">5.2 Developing specific folders are:</h5>
+
+<p>The following files are those that are constantly evolving and new files were added:</p>
+
+<pre><code>www
+|-- coffee
+|   |-- calculator.coffee
+|   |-- create-user.coffee
+|   |-- edit-profile.coffee
+|   |-- geolocation.coffee
+|   |-- index.coffee
+|   |-- login.coffee
+|   |-- profile.coffee
+|   `-- verification-login.coffee
+|-- css
+|   |-- images
+|   |-- index.css
+|   |-- jquery.mobile-1.4.2.min.css
+|   |-- jquery.mobile.external-png-1.4.2.css
+|   |-- jquery.mobile.icons-1.4.2.min.css
+|   |-- jquery.mobile.inline-png-1.4.2.min.css
+|   |-- jquery.mobile.inline-svg-1.4.2.min.css
+|   |-- jquery.mobile.structure-1.4.2.min.css
+|   `-- jquery.mobile.theme-1.4.2.min.css
+`-- index.html
+</code></pre>
+
+<h5 id="52-developing-specific-folders-are">5.2 Developing specific folders are:</h5>
+
+<p>Files that are compiled with CoffeScript for the <code>www</code> folder:</p>
+
+<pre><code>www
+| 
+`-- js
+    |-- calculator.js
+    |-- create-user.js
+    |-- edit-profile.js
+    |-- geolocation.js
+    |-- index.js
+    |-- jquery-1.11.0.js
+    |-- jquery.mobile-1.4.2.js
+    |-- login.js
+    |-- profile.js
+    `-- verification-login.js
+</code></pre></div></div></div></div></body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="en"><head><title>www/coffee/edit-profile</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="www/coffee/edit-profile"><meta name="groc-project-path" content="www/coffee/edit-profile.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">www/coffee/edit-profile.coffee</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">&quot;pageinit&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">editProfile&quot;</span><span class="p">,</span> <span class="nf">(event) -&gt;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Building DOM editing profile&quot;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">userEmailEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">)).</span><span class="nx">attr</span> <span class="s">&quot;disabled&quot;</span><span class="p">,</span> <span class="s">&quot;disabled&quot;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">firtsnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;firstname&quot;</span><span class="p">)</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">lastnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;lastname&quot;</span><span class="p">)</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">phoneEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;phone&quot;</span><span class="p">)</span>
+  
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;</span><span class="err">#</span><span class="s">updateProfile&quot;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&quot;click&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="k">if</span> <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">firtsnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">isnt</span> <span class="s">&quot;&quot;</span> <span class="o">and</span> <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">lastnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">isnt</span> <span class="s">&quot;&quot;</span> <span class="o">and</span> <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">phoneEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">isnt</span> <span class="s">&quot;&quot;</span>
+      <span class="nv">update_data = </span><span class="p">{}</span>
+      <span class="nv">update_data.cookie = </span><span class="s">&#39;5852c0ef0719d1e0922e8e9806a4f5aa&#39;</span>
+      <span class="nv">update_data.email = </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;email&quot;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;firstname&quot;</span><span class="p">)</span> <span class="o">isnt</span> <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">firtsnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+        <span class="nv">update_data.firstname = </span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">firtsnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+      <span class="k">else</span>
+        <span class="nv">update_data.firstname = </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;firstname&quot;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;lastname&quot;</span><span class="p">)</span> <span class="o">isnt</span> <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">lastnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+        <span class="nv">update_data.lastname = </span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">lastnameEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+      <span class="k">else</span>
+        <span class="nv">update_data.lastname = </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;lastname&quot;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;phone&quot;</span><span class="p">)</span> <span class="o">isnt</span> <span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">phoneEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+        <span class="nv">update_data.phone = </span><span class="nx">$</span><span class="p">(</span><span class="s">&quot;input</span><span class="err">#</span><span class="s">phoneEditProfile&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+      <span class="k">else</span>
+        <span class="nv">update_data.phone = </span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&quot;phone&quot;</span><span class="p">)</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">update_data</span>
+
+      <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">setItem</span> <span class="s">&quot;cookie&quot;</span><span class="p">,</span> <span class="nx">update_data</span><span class="p">.</span><span class="nx">cookie</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span> <span class="s">&quot;email&quot;</span><span class="p">,</span> <span class="nx">update_data</span><span class="p">.</span><span class="nx">email</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span> <span class="s">&quot;firstname&quot;</span><span class="p">,</span> <span class="nx">update_data</span><span class="p">.</span><span class="nx">firstname</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span> <span class="s">&quot;lastname&quot;</span><span class="p">,</span> <span class="nx">update_data</span><span class="p">.</span><span class="nx">lastname</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span> <span class="s">&quot;phone&quot;</span><span class="p">,</span> <span class="nx">update_data</span><span class="p">.</span><span class="nx">phone</span>
+
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&#39;firstname&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, &#39;</span> <span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&#39;lastname&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, &#39;</span> <span class="o">+</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&#39;phone&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, &#39;</span> <span class="o">+</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s">&#39;cookie&#39;</span><span class="p">)</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>$(document).on 'pageinit', '#profile', (event) ->
+  console.log "Building Profile from DOM to createUser"
+  $('#dataInfo').remove '.info'
+  console.log $('#dataInfo').children().length
+  if $('#dataInfo').children().length is 0 or $('#dataInfo').children().length is 4
+    $('#dataInfo').append '<li><a href="#" class="info">' + localStorage.getItem(firstname) + '</a></li>' + '<li><a href="#" class="info">' + localStorage.getItem(lastname) + '</a></li>' + '<li><a href="#" class="info">' + localStorage.getItem(email) + '</a></li>' + '<li><a href="#" class="info">' + localStorage.getItem(phone) + '</a></li>'
+    $('#dataInfo').listview 'refresh'</p></div></div><div class="code"><div class="wrapper">      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&#39;#profile&#39;</span>
+    <span class="k">else</span>
+      <span class="nx">alert</span> <span class="s">&#39;Hay campos en blanco&#39;</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;</span><span class="err">#</span><span class="s">deleteUser&quot;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&quot;click&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;click on delete&quot;</span>
+    <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;cookie&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;email&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;firstname&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;lastname&quot;</span>
+    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;phone&quot;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#loginForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#createUserForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="mi">0</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>cargando login por no estar logeado</p></div></div><div class="code"><div class="wrapper">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;sessionStorage clean&quot;</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">login&quot;</span>
+    <span class="k">else</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">home&quot;</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s">&quot;</span><span class="err">#</span><span class="s">logout&quot;</span><span class="p">).</span><span class="nx">on</span> <span class="s">&quot;click&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;click on logout&quot;</span>
+    <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span> <span class="s">&quot;cookie&quot;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#loginForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#createUserForm&#39;</span><span class="p">).</span><span class="nx">reset</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">length</span> <span class="o">is</span> <span class="mi">0</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>cargando login por no estar logeado</p></div></div><div class="code"><div class="wrapper">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;sessionStorage clean&quot;</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">login&quot;</span>
+    <span class="k">else</span>
+      <span class="nx">$</span><span class="p">.</span><span class="nx">mobile</span><span class="p">.</span><span class="nx">changePage</span> <span class="s">&quot;</span><span class="err">#</span><span class="s">home&quot;</span>
+    </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>    type (default: 'GET')
+    Type: String
+    The type of request to make ("POST" or "GET"), default is "GET". Note: Other HTTP request methods,
+    such as PUT and DELETE, can also be used here, but they are not supported by all browsers.
+</code></pre>
+
+<pre><code class="    javascript">$.ajax(
+  type: "POST"
+  url: "http://127.0.0.1:3000/api/v1/user/update"
+  dataType: "json"
+  data: update_data
+).done((data) -&gt;
+  console.log "Ajax correcto"
+  if data.error is `undefined`
+    sessionStorage.setItem "cookie", data.cookie
+    localStorage.setItem "email", data.email
+    localStorage.setItem "firstname", data.firstname
+    localStorage.setItem "lastname", data.lastname
+    localStorage.setItem "phone", data.phone
+    $.mobile.changePage "profile.html"
+  else
+    $("#loginForm").reset()
+    console.log "hay error en el Ajax"
+    $.mobile.changePage "login.html"
+  return
+).fail (data) -&gt;
+  console.log "Fallo el Ajax"
+  $.mobile.changePage "login.html"
+</code></pre></div></div></div></div></body></html>

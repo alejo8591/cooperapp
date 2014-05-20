@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="en"><head><title>www/coffee/geolocation</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../../"><meta name="groc-document-path" content="www/coffee/geolocation"><meta name="groc-project-path" content="www/coffee/geolocation.coffee"><link rel="stylesheet" type="text/css" media="all" href="../../assets/style.css"><script type="text/javascript" src="../../assets/behavior.js"></script><body><div id="meta"><div class="file-path">www/coffee/geolocation.coffee</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><h3 id="geolocation-for-maps">Geolocation for Maps</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span> <span class="s">&#39;pageinit&#39;</span><span class="p">,</span> <span class="s">&#39;#coops&#39;</span><span class="p">,</span> <span class="nf">(event)-&gt;</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;ready for coops&#39;</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h5 id="directionservice-lets-calculate-directions-with-googlemaps">DirectionService lets calculate directions with GoogleMaps</h5></div></div></div><div class="segment"><div class="code"><div class="wrapper">  <span class="nv">getLocation = </span><span class="nf">-&gt;</span>
+  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>clearData();</p></div></div><div class="code"><div class="wrapper">    <span class="nv">decode = </span><span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span><span class="p">)</span>
+    <span class="nx">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span> <span class="nx">handleSuccess</span><span class="p">,</span> <span class="nx">handleError</span>
+    
+  <span class="nv">handleSuccess = </span><span class="nf">(position) -&gt;</span>
+    <span class="nv">initialLatitude = </span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span>
+    <span class="nv">initialLongitude = </span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
+    <span class="nv">displayText = </span><span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
+    <span class="nx">initialize</span> <span class="nx">initialLatitude</span><span class="p">,</span> <span class="nx">initialLongitude</span>
+  
+  <span class="nv">handleError = </span><span class="nf">(error) -&gt;</span>
+    <span class="k">switch</span> <span class="nx">error</span><span class="p">.</span><span class="nx">code</span>
+      <span class="k">when</span> <span class="nx">error</span><span class="p">.</span><span class="nx">PERMISSION_DENIED</span>
+        <span class="nx">alert</span> <span class="s">&quot;User did not share geolocation data&quot;</span>
+      <span class="k">when</span> <span class="nx">error</span><span class="p">.</span><span class="nx">POSITION_UNAVAILABLE</span>
+        <span class="nx">alert</span> <span class="s">&quot;Could not detect current position&quot;</span>
+      <span class="k">when</span> <span class="nx">error</span><span class="p">.</span><span class="nx">TIMEOUT</span>
+        <span class="nx">alert</span> <span class="s">&quot;Retrieving position timed out&quot;</span>
+      <span class="k">else</span>
+        <span class="nx">alert</span> <span class="s">&quot;Unknown Error&quot;</span>
+  
+  <span class="nv">initialize = </span><span class="nf">(latitude, longitude) -&gt;</span>
+  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>DirectionsRenderer object to render DirectionService results.</p></div></div><div class="code"><div class="wrapper">    <span class="nv">directionsDisplay = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">DirectionsRenderer</span><span class="p">()</span>
+  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Locate latitude and longitude actual coords in map</p></div></div><div class="code"><div class="wrapper">    <span class="nv">latlng = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="nx">latitude</span><span class="p">,</span> <span class="nx">longitude</span><span class="p">)</span>
+    <span class="nv">properties =</span>
+      <span class="nx">center</span><span class="o">:</span><span class="nx">latlng</span>
+      <span class="nx">zoom</span><span class="o">:</span><span class="mi">10</span>
+      <span class="nx">mapTypeId</span><span class="o">:</span><span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">MapTypeId</span><span class="p">.</span><span class="nx">ROADMAP</span>
+
+  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Locate map div in HTML page and set map with the properties stablished
+map = new google.maps.Map(document.getElementById("map"), properties);
+directionsDisplay.setMap(map);</p></div></div><div class="code"><div class="wrapper">  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Create markup into the actual position</p></div></div><div class="code"><div class="wrapper">    <span class="nv">map = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s">&quot;map&quot;</span><span class="p">),</span> <span class="nx">properties</span><span class="p">)</span>
+    <span class="nv">array = </span><span class="p">[</span>
+      <span class="p">[</span>
+        <span class="s">&quot;Punto 1&quot;</span>
+        <span class="s">&quot;4.5980556&quot;</span>
+        <span class="s">&quot;-74.0758333&quot;</span>
+      <span class="p">]</span>
+      <span class="p">[</span>
+        <span class="s">&quot;Punto 2&quot;</span>
+        <span class="s">&quot;4.6080556&quot;</span>
+        <span class="s">&quot;-74.0758333&quot;</span>
+      <span class="p">]</span>
+      <span class="p">[</span>
+        <span class="s">&quot;Punto 3&quot;</span>
+        <span class="s">&quot;4.7180556&quot;</span>
+        <span class="s">&quot;-74.0758333&quot;</span>
+      <span class="p">]</span>
+      <span class="p">[</span>
+        <span class="s">&quot;Punto 4&quot;</span>
+        <span class="s">&quot;4.8280556&quot;</span>
+        <span class="s">&quot;-74.0758333&quot;</span>
+      <span class="p">]</span>
+    <span class="p">]</span>
+    <span class="nx">showPoints</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">array</span>
+    <span class="nv">marker = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">(</span>
+      <span class="nx">position</span><span class="o">:</span><span class="nx">latlng</span>
+      <span class="nx">animation</span><span class="o">:</span><span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Animation</span><span class="p">.</span><span class="nx">BOUNCE</span>
+    <span class="p">)</span>
+  </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Geocoder inverse lets get address with latitude and longitute coords</p></div></div><div class="code"><div class="wrapper">    <span class="nv">geocoder = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Geocoder</span><span class="p">()</span>
+    <span class="nv">infoWindow = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">InfoWindow</span><span class="p">()</span>
+    <span class="nx">geocoder</span><span class="p">.</span><span class="nx">geocode</span>
+      <span class="nx">latLng</span><span class="o">:</span><span class="nx">latlng</span>
+    <span class="p">,</span> <span class="nf">(results, status) -&gt;</span>
+      <span class="k">if</span> <span class="nx">status</span> <span class="o">is</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">GeocoderStatus</span><span class="p">.</span><span class="nx">OK</span>
+        <span class="k">if</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+          <span class="nx">directionsDisplay</span><span class="p">.</span><span class="nx">setMap</span> <span class="nx">map</span>
+          <span class="nx">marker</span><span class="p">.</span><span class="nx">setMap</span> <span class="nx">map</span>
+          <span class="nx">marker</span><span class="p">.</span><span class="nx">setPosition</span> <span class="nx">latlng</span>
+        </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>First split for descart Country,city</p></div></div><div class="code"><div class="wrapper">          <span class="nv">splitAddress = </span><span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">formatted_address</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Second split for discard number '-'</p></div></div><div class="code"><div class="wrapper">          <span class="nv">addressShort = </span><span class="nx">splitAddress</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+          <span class="nv">splitCity = </span><span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">3</span><span class="p">].</span><span class="nx">formatted_address</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+          <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s">&quot;txt-coopAddress&quot;</span><span class="p">).</span><span class="nv">value = </span><span class="nx">addressShort</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>document.getElementById("ICity").value = splitCity[0];</p></div></div><div class="code"><div class="wrapper">          <span class="nv">cityReport = </span><span class="nx">splitCity</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>document.getElementById("ICountry").value = results[5].formatted_address;</p></div></div><div class="code"><div class="wrapper">          <span class="nv">countryReport = </span><span class="nx">results</span><span class="p">[</span><span class="mi">5</span><span class="p">].</span><span class="nx">formatted_address</span>
+        </div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>$('#address').text(results[0].formatted_address);
+Is showed a dialog with the address in the map</p></div></div><div class="code"><div class="wrapper">          <span class="nx">infoWindow</span><span class="p">.</span><span class="nx">setContent</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s">&quot;txt-coopAddress&quot;</span><span class="p">).</span><span class="nx">value</span>
+          <span class="nx">infoWindow</span><span class="p">.</span><span class="nx">open</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">marker</span>
+        <span class="k">else</span>
+          <span class="nx">alert</span> <span class="s">&quot;No results found&quot;</span>
+      <span class="k">else</span>
+        <span class="nx">alert</span> <span class="s">&quot;Error&quot;</span>
+
+  <span class="nv">showPoints = </span><span class="nf">(map, sites) -&gt;</span>
+    <span class="nv">i = </span><span class="mi">0</span>
+
+    <span class="k">while</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">sites</span><span class="p">.</span><span class="nx">length</span>
+      <span class="nv">cant = </span><span class="mi">0</span>
+      <span class="nx">infoPoints</span><span class="p">.</span><span class="nx">push</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">InfoWindow</span><span class="p">()</span>
+      <span class="nv">marker = </span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">(</span>
+        <span class="nx">position</span><span class="o">:</span><span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="nx">sites</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="nx">sites</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+        <span class="nx">map</span><span class="o">:</span><span class="nx">map</span>
+        <span class="nx">title</span><span class="o">:</span><span class="nx">sites</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+      <span class="p">)</span>
+      <span class="nx">directionsDisplay</span><span class="p">.</span><span class="nx">setMap</span> <span class="nx">map</span>
+      <span class="nx">marker</span><span class="p">.</span><span class="nx">setMap</span> <span class="nx">map</span>
+      <span class="nx">marker</span><span class="p">.</span><span class="nx">setPosition</span> <span class="nx">marker</span><span class="p">.</span><span class="nx">position</span>
+      <span class="nx">cant</span><span class="o">++</span>
+      <span class="nx">i</span><span class="o">++</span>
+    <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addListener</span> <span class="nx">marker</span><span class="p">,</span> <span class="s">&quot;click&quot;</span><span class="p">,</span> <span class="nf">-&gt;</span>
+      <span class="nv">i = </span><span class="mi">0</span>
+
+      <span class="k">while</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">cant</span>
+        <span class="nx">infoPoints</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">getContent</span><span class="p">()</span>
+        <span class="nx">infoPoints</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">open</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">marker</span>
+        <span class="nx">i</span><span class="o">++</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;execute getLocation&#39;</span>
+  <span class="nx">getLocation</span><span class="p">()</span></div></div></div></div></body></html>
